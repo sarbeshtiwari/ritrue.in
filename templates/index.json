@@ -277,6 +277,7 @@
         "step_1": {
           "type": "step",
           "settings": {
+            "image": "shopify://shop_images/Artboard1_jpg.jpg",
             "title": "APPLY",
             "description": "Apply an even layer of the mask on clean, dry face."
           }
@@ -284,6 +285,7 @@
         "step_2": {
           "type": "step",
           "settings": {
+            "image": "shopify://shop_images/Artboard1-1_jpg.jpg",
             "title": "WAIT",
             "description": "Relax & let it work for 15 minutes."
           }
@@ -291,6 +293,7 @@
         "step_3": {
           "type": "step",
           "settings": {
+            "image": "shopify://shop_images/Blue_Nila_Kaftan_ad_3_story_360x_de1a7d4d-e6b9-4447-bb6c-68da2428efab.webp",
             "title": "WASH",
             "description": "Rinse off with water & reveal a radiant glow."
           }
