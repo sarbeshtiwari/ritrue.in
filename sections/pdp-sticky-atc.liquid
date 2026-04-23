@@ -1,0 +1,296 @@
+{%- style -%}
+  .pdp-sticky-atc {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background: #fff;
+    border-top: 1px solid #eaeaea;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
+    padding: 1rem 1.5rem;
+    display: none;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .pdp-sticky-atc.is-visible {
+    transform: translateY(0);
+  }
+
+  .pdp-sticky-atc__inner {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    max-width: {{ settings.page_width }}px;
+    margin: 0 auto;
+  }
+
+  .pdp-sticky-atc__image {
+    width: 4.8rem;
+    height: 4.8rem;
+    border-radius: 0.8rem;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .pdp-sticky-atc__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .pdp-sticky-atc__info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .pdp-sticky-atc__title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    color: #1e1e1e;
+  }
+
+  .pdp-sticky-atc__price {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+    margin: 0;
+  }
+
+  .pdp-sticky-atc__buttons {
+    display: flex;
+    gap: 0.8rem;
+    flex-shrink: 0;
+  }
+
+  .pdp-sticky-atc__btn {
+    font-family: var(--font-body-family), sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.8rem 1.6rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease, background-color 0.2s ease;
+    line-height: 1;
+  }
+
+  .pdp-sticky-atc__btn:hover {
+    opacity: 0.8;
+  }
+
+  .pdp-sticky-atc__btn--add {
+    background: #f3f3f3;
+    color: #000;
+  }
+
+  .pdp-sticky-atc__btn--buy {
+    background: #000;
+    color: #fff;
+  }
+
+  @media screen and (max-width: 749px) {
+    .pdp-sticky-atc {
+      display: block;
+    }
+
+    .pdp-sticky-atc__info {
+      display: none;
+    }
+
+    .pdp-sticky-atc__buttons {
+      flex: 1;
+    }
+
+    .pdp-sticky-atc__btn {
+      flex: 1;
+      padding: 1rem 0.8rem;
+      font-size: 1.1rem;
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    .pdp-sticky-atc {
+      display: block;
+    }
+  }
+{%- endstyle -%}
+
+{%- if product != blank -%}
+  <sticky-atc-bar class="pdp-sticky-atc" data-section-id="{{ section.id }}">
+    <div class="pdp-sticky-atc__inner">
+      <div class="pdp-sticky-atc__image">
+        {%- if product.featured_image != blank -%}
+          {{ product.featured_image | image_url: width: 96 | image_tag: loading: 'lazy', width: 48, height: 48 }}
+        {%- endif -%}
+      </div>
+      <div class="pdp-sticky-atc__info">
+        <p class="pdp-sticky-atc__title">{{ product.title }}</p>
+        <p class="pdp-sticky-atc__price">{{ product.selected_or_first_available_variant.price | money }}</p>
+      </div>
+      <div class="pdp-sticky-atc__buttons">
+        <button
+          type="button"
+          class="pdp-sticky-atc__btn pdp-sticky-atc__btn--add"
+          data-sticky-add-to-cart
+        >
+          {{ section.settings.add_to_cart_text }}
+        </button>
+        <button
+          type="button"
+          class="pdp-sticky-atc__btn pdp-sticky-atc__btn--buy"
+          data-sticky-buy-now
+        >
+          {{ section.settings.buy_now_text }}
+        </button>
+      </div>
+    </div>
+  </sticky-atc-bar>
+
+  <script>
+    if (!customElements.get('sticky-atc-bar')) {
+      class StickyAtcBar extends HTMLElement {
+        constructor() {
+          super();
+          this.mainForm = null;
+          this.observer = null;
+        }
+
+        connectedCallback() {
+          this.mainForm = document.querySelector('product-form form');
+          if (!this.mainForm) return;
+
+          this.addToCartBtn = this.querySelector('[data-sticky-add-to-cart]');
+          this.buyNowBtn = this.querySelector('[data-sticky-buy-now]');
+
+          this.addToCartBtn?.addEventListener('click', this.handleAddToCart.bind(this));
+          this.buyNowBtn?.addEventListener('click', this.handleBuyNow.bind(this));
+
+          this.formOutOfView = false;
+          this.footerInView = false;
+          this.syncPageOffset();
+
+          const submitBtn = document.querySelector('.product-form__submit');
+          if (submitBtn) {
+            this.observer = new IntersectionObserver(
+              (entries) => {
+                entries.forEach((entry) => {
+                  this.formOutOfView = !entry.isIntersecting;
+                  this.updateVisibility();
+                });
+              },
+              { threshold: 0, rootMargin: '0px' }
+            );
+            this.observer.observe(submitBtn);
+          }
+
+          const footer = document.querySelector('.footer');
+          if (footer) {
+            this.observeFooter(footer);
+          } else {
+            const waitForFooter = () => {
+              const f = document.querySelector('.footer');
+              if (f) {
+                this.observeFooter(f);
+              }
+            };
+            if (document.readyState === 'complete') {
+              waitForFooter();
+            } else {
+              window.addEventListener('load', waitForFooter, { once: true });
+            }
+          }
+        }
+
+        observeFooter(footer) {
+          const barHeight = Math.ceil(this.getBoundingClientRect().height || this.offsetHeight || 0);
+          this.footerObserver = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                this.footerInView = entry.isIntersecting;
+                this.updateVisibility();
+              });
+            },
+            { threshold: 0, rootMargin: `0px 0px ${barHeight}px 0px` }
+          );
+          this.footerObserver.observe(footer);
+        }
+
+        updateVisibility() {
+          const isVisible = this.formOutOfView && !this.footerInView;
+          this.classList.toggle('is-visible', isVisible);
+          document.body.classList.toggle('has-visible-sticky-atc', isVisible);
+          this.syncPageOffset(isVisible);
+        }
+
+        syncPageOffset(isVisible = this.classList.contains('is-visible')) {
+          const offset = isVisible ? Math.ceil(this.getBoundingClientRect().height || this.offsetHeight || 0) : 0;
+          document.documentElement.style.setProperty('--pdp-sticky-atc-offset', `${offset}px`);
+        }
+
+        disconnectedCallback() {
+          document.body.classList.remove('has-visible-sticky-atc');
+          document.documentElement.style.setProperty('--pdp-sticky-atc-offset', '0px');
+          this.observer?.disconnect();
+          this.footerObserver?.disconnect();
+        }
+
+        handleAddToCart() {
+          const submitBtn = this.mainForm?.querySelector('[type="submit"]');
+          if (submitBtn && !submitBtn.disabled) {
+            submitBtn.click();
+          }
+        }
+
+        handleBuyNow() {
+          const dynamicCheckout = this.mainForm?.closest('.product-form')?.querySelector('.shopify-payment-button__button');
+          if (dynamicCheckout) {
+            dynamicCheckout.click();
+          } else {
+            this.handleAddToCart();
+          }
+        }
+      }
+      customElements.define('sticky-atc-bar', StickyAtcBar);
+    }
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Sticky ATC Bar",
+  "class": "pdp-sticky-atc-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "add_to_cart_text",
+      "label": "Add to cart text",
+      "default": "Add to Cart"
+    },
+    {
+      "type": "text",
+      "id": "buy_now_text",
+      "label": "Buy now text",
+      "default": "Buy Now"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sticky ATC Bar"
+    }
+  ],
+  "templates": ["product"]
+}
+{% endschema %}
