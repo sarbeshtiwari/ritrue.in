@@ -11,126 +11,98 @@
     }
   }
 
-  .pdp-benefits {
+  .pdp-video-grid {
     background: {{ section.settings.background_color }};
   }
 
-  .pdp-benefits__heading {
+  .pdp-video-grid__heading {
     text-align: center;
-    margin-bottom: 3.6rem;
+    margin-bottom: 3.2rem;
     font-size: 2.4rem;
     font-weight: 400;
     color: #57413F;
     font-family: 'Amiri', serif;
   }
 
-  .pdp-benefits__grid {
+  .pdp-video-grid__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
+    gap: 1.6rem;
     list-style: none;
     padding: 0;
     margin: 0;
   }
 
   @media screen and (max-width: 749px) {
-    .pdp-benefits__grid {
+    .pdp-video-grid__grid {
       grid-template-columns: 1fr;
-      gap: 2.4rem;
+      gap: 1.2rem;
     }
   }
 
-  .pdp-benefits__card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 2rem;
+  @media screen and (min-width: 750px) and (max-width: 989px) {
+    .pdp-video-grid__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
-  .pdp-benefits__image-wrapper {
-    width: {{ section.settings.image_size }}px;
-    height: {{ section.settings.image_size }}px;
-    border-radius: 50%;
+  .pdp-video-grid__item {
+    position: relative;
     overflow: hidden;
-    margin-bottom: 1.6rem;
-    border: 1px solid #E8DFD0;
+    border-radius: 0;
+    aspect-ratio: 9 / 16;
+    background: #F5F0E8;
   }
 
-  .pdp-benefits__image-wrapper img {
+  .pdp-video-grid__item video {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
   }
 
-  .pdp-benefits__image-placeholder {
-    width: 100%;
-    height: 100%;
-    background: #F5F0E8;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .pdp-benefits__image-placeholder svg {
-    width: 40%;
-    height: 40%;
-    fill: #C4AE78;
-  }
-
-  .pdp-benefits__card-title {
-    font-size: 1.6rem;
-    font-weight: 400;
-    color: #57413F;
-    margin: 0 0 0.8rem;
-    line-height: 1.3;
+  .pdp-video-grid__item-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.2rem;
+    background: linear-gradient(transparent, rgba(86, 64, 63, 0.7));
+    color: #FEF4E4;
     font-family: 'Amiri', serif;
-  }
-
-  .pdp-benefits__card-text {
     font-size: 1.3rem;
-    color: #8A7A70;
-    margin: 0;
-    line-height: 1.5;
-    font-family: 'Amiri', serif;
     font-style: italic;
+    text-align: center;
   }
 {%- endstyle -%}
 
-<div class="pdp-benefits section-{{ section.id }}-padding">
+<div class="pdp-video-grid section-{{ section.id }}-padding">
   {% render 'ritrue-section-styles', section: section %}
   <div class="page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
     {%- if section.settings.heading != blank -%}
-      <h2 class="pdp-benefits__heading {{ section.settings.heading_size }}">
+      <h2 class="pdp-video-grid__heading {{ section.settings.heading_size }}">
         {{ section.settings.heading }}
       </h2>
     {%- endif -%}
 
     {%- if section.blocks.size > 0 -%}
-      <ul class="pdp-benefits__grid" role="list">
+      <ul class="pdp-video-grid__grid" role="list">
         {%- for block in section.blocks -%}
-          <li
-            class="pdp-benefits__card{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-            {{ block.shopify_attributes }}
-            {% if settings.animations_reveal_on_scroll %}
-              data-cascade
-              style="--animation-order: {{ forloop.index }};"
-            {% endif %}
-          >
-            <div class="pdp-benefits__image-wrapper">
-              {%- if block.settings.image != blank -%}
-                {{ block.settings.image | image_url: width: 400 | image_tag: loading: 'lazy', widths: '150, 200, 300, 400', sizes: '(min-width: 750px) 200px, 150px' }}
-              {%- else -%}
-                <div class="pdp-benefits__image-placeholder">
-                  {{ 'image' | placeholder_svg_tag }}
-                </div>
-              {%- endif -%}
-            </div>
-            {%- if block.settings.title != blank -%}
-              <h3 class="pdp-benefits__card-title">{{ block.settings.title }}</h3>
+          <li class="pdp-video-grid__item" {{ block.shopify_attributes }}>
+            {%- if block.settings.video != blank -%}
+              {{ block.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false }}
+            {%- elsif block.settings.video_url != blank -%}
+              <video autoplay loop muted playsinline>
+                <source src="{{ block.settings.video_url }}" type="video/mp4">
+              </video>
+            {%- else -%}
+              <div style="width:100%;height:100%;background:#F5F0E8;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.8rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C4AE78" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="0" ry="0"></rect></svg>
+                <span style="font-family:'Amiri',serif;font-size:1.1rem;color:#8A7A70;font-style:italic;">Upload Video</span>
+              </div>
             {%- endif -%}
-            {%- if block.settings.text != blank -%}
-              <p class="pdp-benefits__card-text">{{ block.settings.text }}</p>
+            {%- if block.settings.caption != blank -%}
+              <div class="pdp-video-grid__item-caption">{{ block.settings.caption }}</div>
             {%- endif -%}
           </li>
         {%- endfor -%}
@@ -141,15 +113,15 @@
 
 {% schema %}
 {
-  "name": "PDP Benefits",
-  "class": "pdp-benefits-section",
+  "name": "PDP Video Grid",
+  "class": "pdp-video-grid-section",
   "tag": "section",
   "settings": [
     {
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Helps With"
+      "default": "See It In Action"
     },
     {
       "type": "select",
@@ -161,15 +133,6 @@
         { "value": "h0", "label": "Large" }
       ],
       "default": "h1"
-    },
-    {
-      "type": "range",
-      "id": "image_size",
-      "min": 80,
-      "max": 200,
-      "step": 10,
-      "label": "Image size (px)",
-      "default": 120
     },
     {
       "type": "color",
@@ -235,37 +198,35 @@
   ],
   "blocks": [
     {
-      "type": "benefit",
-      "name": "Benefit",
+      "type": "video_item",
+      "name": "Video",
       "limit": 6,
       "settings": [
         {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
+          "type": "video",
+          "id": "video",
+          "label": "Shopify-hosted video"
+        },
+        {
+          "type": "url",
+          "id": "video_url",
+          "label": "External video URL (mp4 fallback)"
         },
         {
           "type": "text",
-          "id": "title",
-          "label": "Title",
-          "default": "Benefit title"
-        },
-        {
-          "type": "text",
-          "id": "text",
-          "label": "Description",
-          "default": "Short description of this benefit."
+          "id": "caption",
+          "label": "Caption"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "PDP Benefits",
+      "name": "PDP Video Grid",
       "blocks": [
-        { "type": "benefit", "settings": { "title": "Tan Removal" } },
-        { "type": "benefit", "settings": { "title": "Brightening" } },
-        { "type": "benefit", "settings": { "title": "Hydration" } }
+        { "type": "video_item", "settings": { "caption": "Application" } },
+        { "type": "video_item", "settings": { "caption": "15-Minute Wait" } },
+        { "type": "video_item", "settings": { "caption": "The Reveal" } }
       ]
     }
   ],

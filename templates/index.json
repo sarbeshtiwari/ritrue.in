@@ -1,1 +1,524 @@
-{"sections":{"image-with-text":{"type":"image-with-text","blocks":{"heading":{"type":"heading","settings":{"heading":"Browse our latest products","heading_size":"h1"}},"button":{"type":"button","settings":{"button_label":"Shop now","button_link":"shopify:\/\/collections\/all","button_style_secondary":false}}},"block_order":["heading","button"],"disabled":true,"settings":{"height":"large","desktop_image_width":"large","layout":"text_first","image_behavior":"none","content_layout":"overlap","desktop_content_position":"middle","desktop_content_alignment":"left","mobile_content_alignment":"left","section_color_scheme":"scheme-1","color_scheme":"scheme-2","padding_top":0,"padding_bottom":0}},"featured-collection":{"type":"featured-collection","disabled":true,"settings":{"collection":"all","products_to_show":4,"title":"Featured products","heading_size":"h2","description":"","show_description":false,"description_style":"body","columns_desktop":4,"enable_desktop_slider":false,"full_width":false,"show_view_all":false,"view_all_style":"solid","color_scheme":"scheme-1","image_ratio":"square","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"quick_add":"none","columns_mobile":"2","swipe_on_mobile":true,"padding_top":56,"padding_bottom":68}},"featured_product_KAEAMh":{"type":"featured-product","blocks":{"text_LNBPTJ":{"type":"text","settings":{"text":"{{ section.settings.product.vendor }}","text_style":"uppercase"}},"title_6b8qFk":{"type":"title","settings":{"heading_size":"h2"}},"price_RRHNUP":{"type":"price","settings":{}},"variant_picker_nqWpbc":{"type":"variant_picker","settings":{"picker_type":"button","swatch_shape":"circle"}},"quantity_selector_89Lgpt":{"type":"quantity_selector","settings":{}},"buy_buttons_tVx3Fj":{"type":"buy_buttons","settings":{"show_dynamic_checkout":true,"show_gift_card_recipient":true}},"share_ipWWMU":{"type":"share","settings":{"share_label":"Share"}}},"block_order":["text_LNBPTJ","title_6b8qFk","price_RRHNUP","variant_picker_nqWpbc","quantity_selector_89Lgpt","buy_buttons_tVx3Fj","share_ipWWMU"],"name":"t:sections.featured-product.presets.name","settings":{"product":"ritrue-moroccan-nila-powder-50g","color_scheme":"scheme-1","secondary_background":false,"media_size":"medium","constrain_to_viewport":true,"media_fit":"cover","media_position":"left","image_zoom":"hover","hide_variants":false,"enable_video_looping":true,"padding_top":36,"padding_bottom":36}}},"order":["image-with-text","featured-collection","featured_product_KAEAMh"]}
+{
+  "sections": {
+    "ritrue_hero": {
+      "type": "ritrue-hero",
+      "blocks": {
+        "benefit_1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "sun",
+            "text": "Removes Tan"
+          }
+        },
+        "benefit_2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "droplet",
+            "text": "Evens Skin Tone"
+          }
+        },
+        "benefit_3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "sparkles",
+            "text": "Boosts Radiance"
+          }
+        },
+        "benefit_4": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shield",
+            "text": "Refines Skin"
+          }
+        }
+      },
+      "block_order": ["benefit_1", "benefit_2", "benefit_3", "benefit_4"],
+      "settings": {
+        "badge_text": "VIRAL MOROCCAN RITUAL",
+        "heading_line1": "MOROCCAN",
+        "heading_line2": "NILA",
+        "heading_line3": "GLOW MASK",
+        "subtitle": "15-MIN RADIANCE RITUAL",
+        "subtitle_desc": "Visible Glow in Just 1 Use",
+        "button_text": "SHOP NOW",
+        "button_link": "",
+        "rating": "4.8",
+        "customer_count": "10,000+ Happy Customers"
+      }
+    },
+    "ritrue_trust_strip": {
+      "type": "ritrue-trust-strip",
+      "blocks": {
+        "ts_1": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "check-circle",
+            "text": "Dermatologically Tested"
+          }
+        },
+        "ts_2": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "heart",
+            "text": "Suitable for All Skin Types"
+          }
+        },
+        "ts_3": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "leaf",
+            "text": "Paraben Free"
+          }
+        },
+        "ts_4": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "shield",
+            "text": "Cruelty Free"
+          }
+        },
+        "ts_5": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "award",
+            "text": "Made with Safe Ingredients"
+          }
+        }
+      },
+      "block_order": ["ts_1", "ts_2", "ts_3", "ts_4", "ts_5"],
+      "settings": {}
+    },
+    "ritrue_problem_solution": {
+      "type": "ritrue-problem-solution",
+      "blocks": {
+        "b_1": {
+          "type": "benefit",
+          "settings": {
+            "text": "Instantly removes tan & impurities"
+          }
+        },
+        "b_2": {
+          "type": "benefit",
+          "settings": {
+            "text": "Brightens & evens skin tone"
+          }
+        },
+        "b_3": {
+          "type": "benefit",
+          "settings": {
+            "text": "Leaves skin radiant & refreshed"
+          }
+        },
+        "b_4": {
+          "type": "benefit",
+          "settings": {
+            "text": "Gentle yet effective on all skin types"
+          }
+        }
+      },
+      "block_order": ["b_1", "b_2", "b_3", "b_4"],
+      "settings": {
+        "problem_heading": "<p>TIRED OF <em>Dull, Tanned & Uneven Skin?<\/em><\/p>",
+        "problem_label_1": "TAN & SUN DAMAGE",
+        "problem_label_2": "DULL & TIRED SKIN",
+        "problem_label_3": "UNEVEN SKIN TONE",
+        "solution_heading": "<p>MEET YOUR <em>15-MIN GLOW RITUAL<\/em><\/p>"
+      }
+    },
+    "ritrue_ingredients": {
+      "type": "ritrue-ingredients",
+      "blocks": {
+        "ing_1": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Moroccan Nila",
+            "description": "Ancient Moroccan ritual known to illuminate skin and enhance natural glow."
+          }
+        },
+        "ing_2": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Alpha Arbutin",
+            "description": "Helps reduce pigmentation, brightens skin & improves overall clarity."
+          }
+        },
+        "ing_3": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Niacinamide",
+            "description": "Minimizes pores, evens tone & strengthens skin barrier for healthy skin."
+          }
+        }
+      },
+      "block_order": ["ing_1", "ing_2", "ing_3"],
+      "settings": {
+        "heading": "THE POWER OF MOROCCAN NILA",
+        "subheading": "Ancient Moroccan ingredients backed by modern science"
+      }
+    },
+    "ritrue_results": {
+      "type": "ritrue-results",
+      "blocks": {
+        "res_1": {
+          "type": "result",
+          "settings": {}
+        },
+        "res_2": {
+          "type": "result",
+          "settings": {}
+        },
+        "res_3": {
+          "type": "result",
+          "settings": {}
+        },
+        "stat_1": {
+          "type": "stat",
+          "settings": {
+            "number": "92%",
+            "text": "Users saw visible glow after just 1 use"
+          }
+        },
+        "stat_2": {
+          "type": "stat",
+          "settings": {
+            "number": "89%",
+            "text": "Users noticed even skin tone"
+          }
+        },
+        "stat_3": {
+          "type": "stat",
+          "settings": {
+            "number": "95%",
+            "text": "Users loved the instant freshness"
+          }
+        }
+      },
+      "block_order": ["res_1", "res_2", "res_3", "stat_1", "stat_2", "stat_3"],
+      "settings": {
+        "heading": "REAL RESULTS, REAL YOU.",
+        "disclaimer": "*Based on customer self-assessment study"
+      }
+    },
+    "ritrue_how_to_use": {
+      "type": "ritrue-how-to-use",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "title": "APPLY",
+            "description": "Apply an even layer of the mask on clean, dry face."
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "title": "WAIT",
+            "description": "Relax & let it work for 15 minutes."
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "title": "WASH",
+            "description": "Rinse off with water & reveal a radiant glow."
+          }
+        }
+      },
+      "block_order": ["step_1", "step_2", "step_3"],
+      "settings": {
+        "heading": "HOW TO USE",
+        "subheading": "Your 15-minute glow ritual in 3 simple steps"
+      }
+    },
+    "ritrue_reviews": {
+      "type": "ritrue-reviews",
+      "blocks": {
+        "rev_1": {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "review_text": "My tan is literally gone! Skin looks brighter, smoother & so fresh.",
+            "author_name": "Aishwarya R",
+            "author_location": "Mumbai"
+          }
+        },
+        "rev_2": {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "review_text": "Used it before an event & the glow was unreal!",
+            "author_name": "Neha S",
+            "author_location": "Bangalore"
+          }
+        },
+        "rev_3": {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "review_text": "Best mask I've ever used. Instant results in just 15 mins!",
+            "author_name": "Komal P",
+            "author_location": "Delhi"
+          }
+        },
+        "rev_4": {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "review_text": "Gentle yet super effective. My new holy grail!",
+            "author_name": "Simran K",
+            "author_location": "Chandigarh"
+          }
+        }
+      },
+      "block_order": ["rev_1", "rev_2", "rev_3", "rev_4"],
+      "settings": {
+        "heading": "LOVED BY 10,000+ HAPPY CUSTOMERS"
+      }
+    },
+    "ritrue_trust_section": {
+      "type": "ritrue-trust-section",
+      "blocks": {
+        "tp_1": {
+          "type": "trust_point",
+          "settings": {
+            "icon": "shield-check",
+            "title": "Safe & Effective",
+            "description": "Formulated with skin-loving ingredients"
+          }
+        },
+        "tp_2": {
+          "type": "trust_point",
+          "settings": {
+            "icon": "leaf",
+            "title": "No Harmful Chemicals",
+            "description": "Free from parabens, sulfates & toxins"
+          }
+        },
+        "tp_3": {
+          "type": "trust_point",
+          "settings": {
+            "icon": "heart",
+            "title": "Cruelty Free",
+            "description": "We love animals, just like you"
+          }
+        },
+        "tp_4": {
+          "type": "trust_point",
+          "settings": {
+            "icon": "printer",
+            "title": "Printed with Soy Ink",
+            "description": "Eco-friendly choices for a better tomorrow"
+          }
+        }
+      },
+      "block_order": ["tp_1", "tp_2", "tp_3", "tp_4"],
+      "settings": {
+        "heading": "WHY TRUST RITRUE?"
+      }
+    },
+    "ritrue_cta": {
+      "type": "ritrue-cta",
+      "blocks": {
+        "ck_1": {
+          "type": "check_item",
+          "settings": {
+            "text": "Instant Glow"
+          }
+        },
+        "ck_2": {
+          "type": "check_item",
+          "settings": {
+            "text": "Removes Tan"
+          }
+        },
+        "ck_3": {
+          "type": "check_item",
+          "settings": {
+            "text": "Evens Skin Tone"
+          }
+        },
+        "ck_4": {
+          "type": "check_item",
+          "settings": {
+            "text": "Fresh & Radiant Skin"
+          }
+        }
+      },
+      "block_order": ["ck_1", "ck_2", "ck_3", "ck_4"],
+      "settings": {
+        "heading": "YOUR GLOW RITUAL STARTS HERE",
+        "subtext": "Transform your skin in just 15 minutes. Glow like never before!",
+        "sale_price": "₹799",
+        "original_price": "₹999",
+        "discount_text": "20% OFF",
+        "urgency_text": "Hurry! Limited Stock Available.",
+        "button_text": "SHOP NOW",
+        "button_link": "",
+        "badge_number": "15",
+        "badge_text": "MINUTES TO GLOWING SKIN"
+      }
+    },
+    "ritrue_faq": {
+      "type": "collapsible-content",
+      "blocks": {
+        "faq_1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is the Moroccan Nila Glow Mask?",
+            "icon": "none",
+            "row_content": "<p>The Moroccan Nila Glow Mask is a 15-minute radiance ritual made with authentic Moroccan Nila (indigo powder), Alpha Arbutin, and Niacinamide. It works to remove tan, even out skin tone, and give your skin an instant healthy glow.<\/p>",
+            "page": ""
+          }
+        },
+        "faq_2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Is this suitable for all skin types?",
+            "icon": "none",
+            "row_content": "<p>Yes! The mask is dermatologically tested and formulated to be gentle on all skin types — oily, dry, combination, and sensitive. It's paraben-free and cruelty-free.<\/p>",
+            "page": ""
+          }
+        },
+        "faq_3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Will it stain my skin blue?",
+            "icon": "none",
+            "row_content": "<p>No! While the mask has a beautiful blue colour from Moroccan Nila, it washes off completely. You'll be left with glowing, radiant skin — no blue stains.<\/p>",
+            "page": ""
+          }
+        },
+        "faq_4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How soon will I see results?",
+            "icon": "none",
+            "row_content": "<p>Most users report visible glow and freshness after just one use! For best results with tan removal and skin tone evening, we recommend using the mask 2-3 times a week for 2-4 weeks.<\/p>",
+            "page": ""
+          }
+        },
+        "faq_5": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What are the key ingredients?",
+            "icon": "none",
+            "row_content": "<p>Our star ingredients are: <strong>Moroccan Nila<\/strong> (traditional blue powder for brightening), <strong>Alpha Arbutin<\/strong> (fades dark spots), and <strong>Niacinamide<\/strong> (minimizes pores and strengthens skin barrier).<\/p>",
+            "page": ""
+          }
+        },
+        "faq_6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Is COD (Cash on Delivery) available?",
+            "icon": "none",
+            "row_content": "<p>Yes! We offer Cash on Delivery across India. Free shipping is available on all prepaid orders.<\/p>",
+            "page": ""
+          }
+        },
+        "faq_7": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long does one tube last?",
+            "icon": "none",
+            "row_content": "<p>One tube typically lasts 4-6 weeks with regular use (2-3 times per week). Each application requires only a thin, even layer.<\/p>",
+            "page": ""
+          }
+        },
+        "faq_8": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I apply the mask?",
+            "icon": "none",
+            "row_content": "<p>Step 1: Apply an even layer on clean, dry face (avoid eye area). Step 2: Wait 15 minutes. Step 3: Rinse with lukewarm water and pat dry. Use 2-3 times a week for best results.<\/p>",
+            "page": ""
+          }
+        },
+        "faq_9": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I use it with other skincare products?",
+            "icon": "none",
+            "row_content": "<p>Yes! The mask works well with your existing skincare routine. Apply it on clean skin before your moisturizer and sunscreen. Avoid using it immediately after exfoliating acids.<\/p>",
+            "page": ""
+          }
+        },
+        "faq_10": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What if I have sensitive skin?",
+            "icon": "none",
+            "row_content": "<p>Our formula is designed to be gentle and is suitable for sensitive skin. However, we always recommend doing a small patch test on your inner wrist 24 hours before first use.<\/p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4", "faq_5", "faq_6", "faq_7", "faq_8", "faq_9", "faq_10"],
+      "settings": {
+        "caption": "",
+        "heading": "FREQUENTLY ASKED QUESTIONS",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "scheme-1",
+        "container_color_scheme": "scheme-1",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "ritrue_bottom_strip": {
+      "type": "ritrue-bottom-strip",
+      "blocks": {
+        "bs_1": {
+          "type": "service",
+          "settings": {
+            "icon": "truck",
+            "title": "Free Shipping",
+            "subtitle": "On Prepaid Orders"
+          }
+        },
+        "bs_2": {
+          "type": "service",
+          "settings": {
+            "icon": "refresh",
+            "title": "Easy Returns",
+            "subtitle": "Hassle Free Returns"
+          }
+        },
+        "bs_3": {
+          "type": "service",
+          "settings": {
+            "icon": "lock",
+            "title": "Secure Payment",
+            "subtitle": "100% Safe & Secure"
+          }
+        },
+        "bs_4": {
+          "type": "service",
+          "settings": {
+            "icon": "headphones",
+            "title": "Customer Support",
+            "subtitle": "We're Here to Help"
+          }
+        }
+      },
+      "block_order": ["bs_1", "bs_2", "bs_3", "bs_4"],
+      "settings": {}
+    }
+  },
+  "order": [
+    "ritrue_hero",
+    "ritrue_trust_strip",
+    "ritrue_problem_solution",
+    "ritrue_ingredients",
+    "ritrue_results",
+    "ritrue_how_to_use",
+    "ritrue_reviews",
+    "ritrue_trust_section",
+    "ritrue_cta",
+    "ritrue_faq",
+    "ritrue_bottom_strip"
+  ]
+}

@@ -1,0 +1,161 @@
+{% render 'ritrue-section-styles', section: section %}
+<div class="ritrue-reviews">
+  <div class="ritrue-container">
+    <h2 class="ritrue-section-heading">{{ section.settings.heading }}</h2>
+    {%- if section.settings.subheading != blank -%}
+      <p class="ritrue-section-subheading">{{ section.settings.subheading }}</p>
+    {%- endif -%}
+
+    <div class="ritrue-reviews__grid">
+      {%- for block in section.blocks -%}
+        <div class="ritrue-review-card ritrue-reveal" {{ block.shopify_attributes }}>
+          <div class="ritrue-review-card__stars">
+            {%- assign star_count = block.settings.stars | default: 5 -%}
+            {%- for i in (1..star_count) -%}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            {%- endfor -%}
+          </div>
+          <p class="ritrue-review-card__text">"{{ block.settings.review_text }}"</p>
+          <p class="ritrue-review-card__author">~ {{ block.settings.author_name }}{%- if block.settings.author_location != blank -%}, {{ block.settings.author_location }}{%- endif -%}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "RITRUE Reviews",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "LOVED BY 10,000+ HAPPY CUSTOMERS"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading"
+    },
+    {
+      "type": "header",
+      "content": "Section Customization"
+    },
+    {
+      "type": "color",
+      "id": "custom_bg_color",
+      "label": "Background Color",
+      "info": "Leave empty to use default."
+    },
+    {
+      "type": "image_picker",
+      "id": "custom_bg_image",
+      "label": "Background Image",
+      "info": "Overrides background color when set."
+    },
+    {
+      "type": "range",
+      "id": "custom_min_height",
+      "label": "Minimum Height (px)",
+      "min": 0,
+      "max": 1200,
+      "step": 50,
+      "default": 0,
+      "unit": "px",
+      "info": "Set to 0 for auto height."
+    },
+    {
+      "type": "range",
+      "id": "custom_font_size",
+      "label": "Content Font Size (px)",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "default": 0,
+      "unit": "px",
+      "info": "Set to 0 to use default size."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "range",
+          "id": "stars",
+          "label": "Star Rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "review_text",
+          "label": "Review Text",
+          "default": "Amazing product! My skin has never looked this radiant."
+        },
+        {
+          "type": "text",
+          "id": "author_name",
+          "label": "Author Name",
+          "default": "Aishwarya R"
+        },
+        {
+          "type": "text",
+          "id": "author_location",
+          "label": "Author Location",
+          "default": "Mumbai"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RITRUE Reviews",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "review_text": "My tan is literally gone! Skin looks brighter, smoother & so fresh.",
+            "author_name": "Aishwarya R",
+            "author_location": "Mumbai"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "review_text": "Used it before an event & the glow was unreal!",
+            "author_name": "Neha S",
+            "author_location": "Bangalore"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "review_text": "Best mask I've ever used. Instant results in just 15 mins!",
+            "author_name": "Komal P",
+            "author_location": "Delhi"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "review_text": "Gentle yet super effective. My new holy grail!",
+            "author_name": "Simran K",
+            "author_location": "Chandigarh"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

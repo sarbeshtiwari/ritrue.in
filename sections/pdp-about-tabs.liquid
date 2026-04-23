@@ -19,15 +19,16 @@
     text-align: center;
     margin-bottom: 2.4rem;
     font-size: 2.4rem;
-    font-weight: 600;
-    color: #1e1e1e;
+    font-weight: 400;
+    color: #57413F;
+    font-family: 'Amiri', serif;
   }
 
   .pdp-about-tabs__nav {
     display: flex;
     justify-content: center;
     gap: 0;
-    border-bottom: 2px solid #eaeaea;
+    border-bottom: 1px solid #E8DFD0;
     margin-bottom: 3.2rem;
     list-style: none;
     padding: 0;
@@ -41,27 +42,29 @@
 
   .pdp-about-tabs__tab {
     padding: 1.2rem 2.4rem;
-    font-size: 1.4rem;
-    font-weight: 500;
-    color: #737373;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #8A7A70;
     cursor: pointer;
     border: none;
     background: transparent;
     border-bottom: 2px solid transparent;
-    margin-bottom: -2px;
+    margin-bottom: -1px;
     transition: color 0.2s ease, border-color 0.2s ease;
     white-space: nowrap;
-    font-family: var(--font-body-family), sans-serif;
+    font-family: 'Amiri', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
   }
 
   .pdp-about-tabs__tab:hover {
-    color: #1e1e1e;
+    color: #57413F;
   }
 
   .pdp-about-tabs__tab.is-active {
-    color: #1e1e1e;
-    font-weight: 600;
-    border-bottom-color: #E85A28;
+    color: #57413F;
+    font-weight: 400;
+    border-bottom-color: #57413F;
   }
 
   .pdp-about-tabs__panel {
@@ -73,7 +76,7 @@
   }
 
   .pdp-about-tabs__image {
-    border-radius: 1.2rem;
+    border-radius: 0;
     overflow: hidden;
     max-width: 100%;
   }
@@ -103,12 +106,13 @@
 
     .pdp-about-tabs__tab {
       padding: 1rem 1.6rem;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
   }
 {%- endstyle -%}
 
 <div class="pdp-about-tabs section-{{ section.id }}-padding">
+  {% render 'ritrue-section-styles', section: section %}
   <div class="page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
     {%- if section.settings.heading != blank -%}
       <h2 class="pdp-about-tabs__heading {{ section.settings.heading_size }}">
@@ -147,6 +151,10 @@
               <div class="pdp-about-tabs__image pdp-about-tabs__image--desktop">
                 {{ block.settings.desktop_image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '600, 800, 1000, 1200', sizes: '(min-width: 750px) 1200px, 100vw' }}
               </div>
+            {%- else -%}
+              <div class="pdp-about-tabs__image pdp-about-tabs__image--desktop">
+                <div style="width:100%;aspect-ratio:16/9;background:#F5F0E8;display:flex;align-items:center;justify-content:center;">{{ 'image' | placeholder_svg_tag }}</div>
+              </div>
             {%- endif -%}
             {%- if block.settings.mobile_image != blank -%}
               <div class="pdp-about-tabs__image pdp-about-tabs__image--mobile">
@@ -155,6 +163,10 @@
             {%- elsif block.settings.desktop_image != blank -%}
               <div class="pdp-about-tabs__image pdp-about-tabs__image--mobile">
                 {{ block.settings.desktop_image | image_url: width: 750 | image_tag: loading: 'lazy', widths: '375, 500, 750', sizes: '100vw' }}
+              </div>
+            {%- else -%}
+              <div class="pdp-about-tabs__image pdp-about-tabs__image--mobile">
+                <div style="width:100%;aspect-ratio:4/3;background:#F5F0E8;display:flex;align-items:center;justify-content:center;">{{ 'image' | placeholder_svg_tag }}</div>
               </div>
             {%- endif -%}
           </div>
@@ -233,7 +245,7 @@
       "type": "color",
       "id": "background_color",
       "label": "Background color",
-      "default": "#ffffff"
+      "default": "#FDFAEF"
     },
     {
       "type": "range",
@@ -254,6 +266,41 @@
       "unit": "px",
       "label": "Bottom padding",
       "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Section Customization"
+    },
+    {
+      "type": "color",
+      "id": "custom_bg_color",
+      "label": "Custom background color"
+    },
+    {
+      "type": "image_picker",
+      "id": "custom_bg_image",
+      "label": "Custom background image",
+      "info": "Overrides background color when set."
+    },
+    {
+      "type": "range",
+      "id": "custom_min_height",
+      "min": 0,
+      "max": 1200,
+      "step": 50,
+      "unit": "px",
+      "label": "Minimum height",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "custom_font_size",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Content font size",
+      "default": 0
     }
   ],
   "blocks": [

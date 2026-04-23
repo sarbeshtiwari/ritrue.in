@@ -1,0 +1,334 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .pdp-faq {
+    background: {{ section.settings.background_color }};
+  }
+
+  .pdp-faq__heading {
+    text-align: center;
+    margin-bottom: 3.2rem;
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: #57413F;
+    font-family: 'Amiri', serif;
+  }
+
+  .pdp-faq__list {
+    max-width: 800px;
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+  }
+
+  .pdp-faq__item {
+    border-bottom: 1px solid #E8DFD0;
+  }
+
+  .pdp-faq__item:first-child {
+    border-top: 1px solid #E8DFD0;
+  }
+
+  .pdp-faq__question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1.6rem 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-family: 'Amiri', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #57413F;
+    text-align: left;
+    line-height: 1.4;
+    transition: opacity 0.2s ease;
+  }
+
+  .pdp-faq__question:hover {
+    opacity: 0.7;
+  }
+
+  .pdp-faq__question-icon {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    margin-left: 1.2rem;
+    position: relative;
+    color: #57413F;
+  }
+
+  .pdp-faq__question-icon::before,
+  .pdp-faq__question-icon::after {
+    content: '';
+    position: absolute;
+    background: currentColor;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.25s ease;
+  }
+
+  .pdp-faq__question-icon::before {
+    width: 1.2rem;
+    height: 1px;
+  }
+
+  .pdp-faq__question-icon::after {
+    width: 1px;
+    height: 1.2rem;
+  }
+
+  .pdp-faq__item.is-open .pdp-faq__question-icon::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+
+  .pdp-faq__answer {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0;
+  }
+
+  .pdp-faq__item.is-open .pdp-faq__answer {
+    max-height: 500px;
+    padding: 0 0 1.6rem;
+  }
+
+  .pdp-faq__answer-inner {
+    font-family: 'Amiri', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    font-style: italic;
+    color: #8A7A70;
+    line-height: 1.7;
+  }
+{%- endstyle -%}
+
+<div class="pdp-faq section-{{ section.id }}-padding">
+  {% render 'ritrue-section-styles', section: section %}
+  <div class="page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="pdp-faq__heading {{ section.settings.heading_size }}">
+        {{ section.settings.heading }}
+      </h2>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <pdp-faq-accordion class="pdp-faq__list">
+        {%- for block in section.blocks -%}
+          <div class="pdp-faq__item{% if section.settings.open_first and forloop.first %} is-open{% endif %}" {{ block.shopify_attributes }}>
+            <button type="button" class="pdp-faq__question" aria-expanded="{% if section.settings.open_first and forloop.first %}true{% else %}false{% endif %}">
+              <span>{{ block.settings.question }}</span>
+              <span class="pdp-faq__question-icon" aria-hidden="true"></span>
+            </button>
+            <div class="pdp-faq__answer" role="region">
+              <div class="pdp-faq__answer-inner">{{ block.settings.answer }}</div>
+            </div>
+          </div>
+        {%- endfor -%}
+      </pdp-faq-accordion>
+    {%- endif -%}
+  </div>
+</div>
+
+<script>
+  if (!customElements.get('pdp-faq-accordion')) {
+    class PdpFaqAccordion extends HTMLElement {
+      connectedCallback() {
+        this.querySelectorAll('.pdp-faq__question').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const item = btn.closest('.pdp-faq__item');
+            const isOpen = item.classList.contains('is-open');
+            if (this.dataset.singleOpen !== undefined) {
+              this.querySelectorAll('.pdp-faq__item.is-open').forEach((openItem) => {
+                openItem.classList.remove('is-open');
+                openItem.querySelector('.pdp-faq__question').setAttribute('aria-expanded', 'false');
+              });
+            }
+            item.classList.toggle('is-open', !isOpen);
+            btn.setAttribute('aria-expanded', String(!isOpen));
+          });
+        });
+      }
+    }
+    customElements.define('pdp-faq-accordion', PdpFaqAccordion);
+  }
+</script>
+
+{% schema %}
+{
+  "name": "PDP FAQ",
+  "class": "pdp-faq-section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_first",
+      "label": "Open first item by default",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FDFAEF"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Section Customization"
+    },
+    {
+      "type": "color",
+      "id": "custom_bg_color",
+      "label": "Custom background color"
+    },
+    {
+      "type": "image_picker",
+      "id": "custom_bg_image",
+      "label": "Custom background image",
+      "info": "Overrides background color when set."
+    },
+    {
+      "type": "range",
+      "id": "custom_min_height",
+      "min": 0,
+      "max": 1200,
+      "step": 50,
+      "unit": "px",
+      "label": "Minimum height",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "custom_font_size",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Content font size",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "Question",
+      "limit": 12,
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "What is this product?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Answer goes here.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PDP FAQ",
+      "blocks": [
+        {
+          "type": "question",
+          "settings": {
+            "question": "What is the Moroccan Nila Glow Mask?",
+            "answer": "<p>It's a 15-minute radiance ritual mask powered by authentic Moroccan Nila, Alpha Arbutin, and Niacinamide. It removes tan, brightens skin, and leaves you with a visible glow after just one use.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "How do I use it?",
+            "answer": "<p>Apply an even layer on clean, dry skin. Wait 15 minutes, then rinse off with water. Use 2-3 times per week for best results.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Is it suitable for all skin types?",
+            "answer": "<p>Yes! The mask is dermatologically tested and formulated to be gentle yet effective on all skin types, including sensitive skin. We always recommend a patch test before first use.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "When will I see results?",
+            "answer": "<p>Most users report a visible glow and brighter skin after the very first use. For best results with tan removal and even skin tone, we recommend consistent use over 2-4 weeks.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Is COD available?",
+            "answer": "<p>Yes, Cash on Delivery is available across India. Free shipping is available on all prepaid orders.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "What is the return policy?",
+            "answer": "<p>We offer hassle-free returns within 7 days of delivery. If you're not satisfied with the product, contact us and we'll arrange a return.</p>"
+          }
+        }
+      ]
+    }
+  ],
+  "templates": ["product"]
+}
+{% endschema %}

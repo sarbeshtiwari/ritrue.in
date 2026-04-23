@@ -1,0 +1,171 @@
+{% render 'ritrue-section-styles', section: section %}
+<div class="ritrue-results">
+  <div class="ritrue-container">
+    <h2 class="ritrue-section-heading ritrue-section-heading--light">{{ section.settings.heading }}</h2>
+
+    <div class="ritrue-results__layout">
+      <div class="ritrue-results__grid">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'result' -%}
+            <div class="ritrue-result-card ritrue-reveal" {{ block.shopify_attributes }}>
+              <div class="ritrue-result-card__images">
+                <div class="ritrue-result-card__before">
+                  {%- if block.settings.before_image != blank -%}
+                    <img
+                      src="{{ block.settings.before_image | image_url: width: 400 }}"
+                      alt="Before"
+                      loading="lazy"
+                      width="400"
+                      height="533"
+                    >
+                  {%- else -%}
+                    <div style="width:100%;height:100%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;">{{ 'image' | placeholder_svg_tag }}</div>
+                  {%- endif -%}
+                  <span class="ritrue-result-card__label">Before</span>
+                </div>
+                <div class="ritrue-result-card__after">
+                  {%- if block.settings.after_image != blank -%}
+                    <img
+                      src="{{ block.settings.after_image | image_url: width: 400 }}"
+                      alt="After"
+                      loading="lazy"
+                      width="400"
+                      height="533"
+                    >
+                  {%- else -%}
+                    <div style="width:100%;height:100%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;">{{ 'image' | placeholder_svg_tag }}</div>
+                  {%- endif -%}
+                  <span class="ritrue-result-card__label">After</span>
+                </div>
+              </div>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+      <div class="ritrue-results__stats">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'stat' -%}
+            <div class="ritrue-stat ritrue-reveal" {{ block.shopify_attributes }}>
+              <div class="ritrue-stat__number">{{ block.settings.number }}</div>
+              <div class="ritrue-stat__text">{{ block.settings.text }}</div>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+
+    {%- if section.settings.disclaimer != blank -%}
+      <p class="ritrue-results__disclaimer">{{ section.settings.disclaimer }}</p>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "RITRUE Results",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "REAL RESULTS, REAL YOU."
+    },
+    {
+      "type": "text",
+      "id": "disclaimer",
+      "label": "Disclaimer Text",
+      "default": "*Based on customer self-assessment study"
+    },
+    {
+      "type": "header",
+      "content": "Section Customization"
+    },
+    {
+      "type": "color",
+      "id": "custom_bg_color",
+      "label": "Background Color",
+      "info": "Leave empty to use default."
+    },
+    {
+      "type": "image_picker",
+      "id": "custom_bg_image",
+      "label": "Background Image",
+      "info": "Overrides background color when set."
+    },
+    {
+      "type": "range",
+      "id": "custom_min_height",
+      "label": "Minimum Height (px)",
+      "min": 0,
+      "max": 1200,
+      "step": 50,
+      "default": 0,
+      "unit": "px",
+      "info": "Set to 0 for auto height."
+    },
+    {
+      "type": "range",
+      "id": "custom_font_size",
+      "label": "Content Font Size (px)",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "default": 0,
+      "unit": "px",
+      "info": "Set to 0 to use default size."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "result",
+      "name": "Before/After",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "before_image",
+          "label": "Before Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "after_image",
+          "label": "After Image"
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "name": "Statistic",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number",
+          "default": "92%"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Description",
+          "default": "Users saw visible glow after just 1 use"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RITRUE Results",
+      "blocks": [
+        { "type": "result" },
+        { "type": "result" },
+        { "type": "result" },
+        { "type": "stat", "settings": { "number": "92%", "text": "Users saw visible glow after just 1 use" } },
+        { "type": "stat", "settings": { "number": "89%", "text": "Users noticed even skin tone" } },
+        { "type": "stat", "settings": { "number": "95%", "text": "Users loved the instant freshness" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

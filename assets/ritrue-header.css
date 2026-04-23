@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --header-brown: #57413F;
+  --header-brown-dark: #56403F;
+  --header-cream: #FEF4E4;
+  --header-cream-bg: #FDFAEF;
+  --header-gold: #C4AE78;
+  --header-border: #E8DFD0;
+  --header-font-serif: 'Amiri', serif;
+}
+
+/* ── Announcement Bar ── */
+.utility-bar {
+  background-color: var(--header-brown-dark) !important;
+  border-bottom: none !important;
+}
+
+.utility-bar .announcement-bar__message,
+.utility-bar .announcement-bar__message span,
+.utility-bar .announcement-bar__link {
+  font-family: var(--header-font-serif) !important;
+  color: var(--header-cream) !important;
+  font-size: 0.85rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+}
+
+.utility-bar .announcement-bar__link:hover {
+  color: var(--header-gold) !important;
+}
+
+/* Override Shopify color scheme on announcement bar */
+.utility-bar[class*="color-"] {
+  --color-background: transparent !important;
+}
+
+/* ── Header Wrapper ── */
+.section-header.shopify-section-group-header-group {
+  border-bottom: none !important;
+}
+
+.header-wrapper[class*="color-"] {
+  background-color: var(--header-cream-bg) !important;
+  --color-foreground: 87, 65, 63 !important;
+}
+
+.header-wrapper {
+  background-color: var(--header-cream-bg) !important;
+  border-bottom: none !important;
+}
+
+/* ── Header Layout (top-center: centered logo, nav row below) ── */
+.header {
+  font-family: var(--header-font-serif) !important;
+  padding: 4px 50px !important;
+}
+
+@media screen and (min-width: 990px) {
+  .header--top-center.header--has-menu:not(.drawer-menu) {
+    grid-template-areas:
+      'left-icons heading icons'
+      'navigation navigation navigation' !important;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) !important;
+  }
+
+  .header--top-center .header__inline-menu {
+    margin-top: 0.2rem !important;
+  }
+}
+
+/* ── Logo ── */
+.header__heading-link,
+.header__heading-link .h2 {
+  font-family: var(--header-font-serif) !important;
+  color: var(--header-brown) !important;
+  font-weight: 400 !important;
+  text-decoration: none !important;
+}
+
+.header__heading-link .h2 {
+  font-size: 2rem !important;
+  letter-spacing: 0.08em !important;
+}
+
+.header__heading-link:hover .h2 {
+  color: var(--header-brown) !important;
+}
+
+.header__heading-logo-wrapper {
+  max-width: 250px !important;
+}
+
+.header__heading-logo {
+  width: 100% !important;
+}
+
+/* ── Navigation Links ── */
+.header__inline-menu .list-menu--inline {
+  gap: 0 !important;
+  justify-content: center !important;
+}
+
+.header__inline-menu .list-menu__item--link,
+.header__inline-menu .header__menu-item {
+  font-family: var(--header-font-serif) !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+  color: rgba(87, 65, 63, 0.95) !important;
+  padding: 12px !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+  line-height: 1.3 !important;
+}
+
+/* Hover: underline with offset, matching Moulaty exactly */
+.header__inline-menu .list-menu__item--link:hover,
+.header__inline-menu .header__menu-item:hover {
+  color: rgb(87, 65, 63) !important;
+}
+
+.header__inline-menu .list-menu__item--link:hover span,
+.header__inline-menu .header__menu-item:hover span {
+  text-decoration: underline !important;
+  text-underline-offset: 0.3rem !important;
+  text-decoration-thickness: 0.1rem !important;
+}
+
+/* Dropdown caret summary extra padding */
+.header__inline-menu summary.list-menu__item {
+  padding-right: 27px !important;
+}
+
+/* ── Dropdown Menu ── */
+.header__submenu {
+  background-color: var(--header-cream-bg) !important;
+  border: 1px solid var(--header-border) !important;
+  box-shadow: none !important;
+}
+
+.header__submenu .header__menu-item {
+  font-family: var(--header-font-serif) !important;
+  color: rgba(87, 65, 63, 0.95) !important;
+  font-size: 14px !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+}
+
+.header__submenu .header__menu-item:hover {
+  color: rgb(87, 65, 63) !important;
+  background-color: transparent !important;
+  text-decoration: underline !important;
+  text-underline-offset: 0.3rem !important;
+}
+
+/* ── Header Icons (search, account, cart) ── */
+.header__icon,
+.header__icon span,
+.header__icon .icon {
+  color: var(--header-brown) !important;
+}
+
+.header__icon:hover,
+.header__icon:hover .icon {
+  color: rgba(87, 65, 63, 0.7) !important;
+}
+
+.header__icon .icon {
+  width: 2.4rem !important;
+  height: 2.4rem !important;
+}
+
+.header__icon--cart .icon {
+  width: 4.8rem !important;
+  height: 4.8rem !important;
+}
+
+.header__icon::after {
+  display: none !important;
+}
+
+.cart-count-bubble {
+  background-color: var(--header-brown) !important;
+  color: var(--header-cream) !important;
+  font-family: var(--header-font-serif) !important;
+  font-size: 0.65rem !important;
+}
+
+/* ── Sticky Header ── */
+.shopify-section-header-sticky .header-wrapper {
+  background-color: var(--header-cream-bg) !important;
+  transition: all 0.3s ease !important;
+}
+
+/* No shadow on scroll — matching Moulaty */
+.scrolled-past-header .header-wrapper {
+  box-shadow: none !important;
+}
+
+.header-wrapper--border-bottom {
+  border-bottom: none !important;
+}
+
+/* ── Search Modal ── */
+.search-modal {
+  background-color: var(--header-cream-bg) !important;
+  font-family: var(--header-font-serif) !important;
+}
+
+.search-modal .field__input {
+  font-family: var(--header-font-serif) !important;
+  color: var(--header-brown) !important;
+  border-color: var(--header-border) !important;
+  border-radius: 0 !important;
+}
+
+.search-modal .field__button {
+  color: var(--header-brown) !important;
+}
+
+/* ── Mobile Drawer Menu ── */
+.menu-drawer {
+  background-color: var(--header-cream-bg) !important;
+  font-family: var(--header-font-serif) !important;
+}
+
+.menu-drawer__menu-item,
+.menu-drawer .menu-drawer__menu-item {
+  font-family: var(--header-font-serif) !important;
+  color: var(--header-brown) !important;
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+  padding: 11px 30px !important;
+  line-height: 1.3 !important;
+}
+
+.menu-drawer__close-button,
+.menu-drawer summary .icon {
+  color: var(--header-brown) !important;
+}
+
+header-drawer .icon {
+  color: var(--header-brown) !important;
+}
+
+/* ── Predictive Search ── */
+predictive-search {
+  background-color: var(--header-cream-bg) !important;
+}
+
+.predictive-search__heading {
+  font-family: var(--header-font-serif) !important;
+  color: var(--header-brown) !important;
+  letter-spacing: normal !important;
+}
+
+.predictive-search__item {
+  font-family: var(--header-font-serif) !important;
+}
+
+.predictive-search__item-heading {
+  color: var(--header-brown) !important;
+}
+
+/* ── Responsive ── */
+@media screen and (max-width: 989px) {
+  .header {
+    padding: 2px 30px !important;
+  }
+
+  .header__heading-logo-wrapper {
+    max-width: 164px !important;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .header {
+    padding: 2px 15px !important;
+  }
+
+  .header__heading-logo-wrapper {
+    max-width: 120px !important;
+  }
+
+  .utility-bar .announcement-bar__message {
+    font-size: 0.7rem !important;
+  }
+
+  /* Hide account icon on mobile — match Moulaty */
+  .header__icon--account {
+    display: none !important;
+  }
+}

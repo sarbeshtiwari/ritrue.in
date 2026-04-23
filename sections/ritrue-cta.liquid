@@ -1,0 +1,252 @@
+{% render 'ritrue-section-styles', section: section %}
+
+{%- liquid
+  assign product = section.settings.product
+  if product != blank
+    assign current_variant = product.selected_or_first_available_variant
+    assign sale_price = current_variant.price
+    assign compare_price = current_variant.compare_at_price
+    assign product_url = product.url
+    if compare_price != blank and compare_price > sale_price
+      assign discount_amount = compare_price | minus: sale_price
+      assign discount_pct = discount_amount | times: 100 | divided_by: compare_price
+      assign discount_label = discount_pct | append: '% OFF'
+    endif
+  endif
+-%}
+
+<div class="ritrue-cta">
+  <div class="ritrue-container">
+    <div class="ritrue-cta__inner">
+
+      <div class="ritrue-cta__text-col">
+        <h2 class="ritrue-cta__heading">{{ section.settings.heading }}</h2>
+        {%- if section.settings.subtext != blank -%}
+          <p class="ritrue-cta__subtext">{{ section.settings.subtext }}</p>
+        {%- endif -%}
+
+        <div class="ritrue-cta__price-row">
+          {%- if product != blank -%}
+            <span class="ritrue-cta__price">{{ sale_price | money }}</span>
+            {%- if compare_price != blank and compare_price > sale_price -%}
+              <span class="ritrue-cta__price-original">{{ compare_price | money }}</span>
+              <span class="ritrue-cta__discount-badge">{{ discount_label }}</span>
+            {%- endif -%}
+          {%- else -%}
+            <span class="ritrue-cta__price">{{ section.settings.sale_price }}</span>
+            {%- if section.settings.original_price != blank -%}
+              <span class="ritrue-cta__price-original">{{ section.settings.original_price }}</span>
+            {%- endif -%}
+            {%- if section.settings.discount_text != blank -%}
+              <span class="ritrue-cta__discount-badge">{{ section.settings.discount_text }}</span>
+            {%- endif -%}
+          {%- endif -%}
+        </div>
+
+        <a href="{{ product_url | default: section.settings.button_link }}" class="ritrue-btn ritrue-btn--gold ritrue-btn--large">
+          {{ section.settings.button_text }}
+        </a>
+
+        {%- if section.settings.urgency_text != blank -%}
+          <p class="ritrue-cta__urgency">{{ section.settings.urgency_text }}</p>
+        {%- endif -%}
+      </div>
+
+      <div class="ritrue-cta__media-col">
+        {%- if section.settings.product_image != blank -%}
+          <img
+            class="ritrue-cta__product-img"
+            src="{{ section.settings.product_image | image_url: width: 500 }}"
+            alt="Product"
+            loading="lazy"
+            width="500"
+            height="500"
+          >
+        {%- endif -%}
+        {%- if section.settings.extra_image != blank -%}
+          <img
+            class="ritrue-cta__extra-img"
+            src="{{ section.settings.extra_image | image_url: width: 300 }}"
+            alt="Product detail"
+            loading="lazy"
+            width="300"
+            height="300"
+          >
+        {%- endif -%}
+      </div>
+
+      <div class="ritrue-cta__badge-col">
+        <div class="ritrue-cta__time-badge">
+          <span class="ritrue-cta__time-badge-number">{{ section.settings.badge_number }}</span>
+          <span class="ritrue-cta__time-badge-text">{{ section.settings.badge_text }}</span>
+        </div>
+
+        <ul class="ritrue-cta__checks">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'check_item' -%}
+              <li {{ block.shopify_attributes }}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+                <span>{{ block.settings.text }}</span>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "RITRUE CTA Offer",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product",
+      "info": "Select a product to auto-pull price and discount. Leave empty to use manual prices below."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "YOUR GLOW RITUAL STARTS HERE"
+    },
+    {
+      "type": "text",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Transform your skin in just 15 minutes. Glow like never before!"
+    },
+    {
+      "type": "text",
+      "id": "sale_price",
+      "label": "Sale Price (fallback)",
+      "default": "₹799",
+      "info": "Used only if no product selected."
+    },
+    {
+      "type": "text",
+      "id": "original_price",
+      "label": "Original Price (fallback)",
+      "default": "₹999",
+      "info": "Used only if no product selected."
+    },
+    {
+      "type": "text",
+      "id": "discount_text",
+      "label": "Discount Badge (fallback)",
+      "default": "20% OFF",
+      "info": "Used only if no product selected."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link (fallback)",
+      "info": "Used only if no product selected."
+    },
+    {
+      "type": "text",
+      "id": "urgency_text",
+      "label": "Urgency Text",
+      "default": "Hurry! Limited Stock Available."
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image",
+      "label": "Product Image (Center)"
+    },
+    {
+      "type": "image_picker",
+      "id": "extra_image",
+      "label": "Extra Image (e.g. jar/bowl)"
+    },
+    {
+      "type": "text",
+      "id": "badge_number",
+      "label": "Badge Number",
+      "default": "15"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Text",
+      "default": "MINUTES TO GLOWING SKIN"
+    },
+    {
+      "type": "header",
+      "content": "Section Customization"
+    },
+    {
+      "type": "color",
+      "id": "custom_bg_color",
+      "label": "Background Color",
+      "info": "Leave empty to use default."
+    },
+    {
+      "type": "image_picker",
+      "id": "custom_bg_image",
+      "label": "Background Image",
+      "info": "Overrides background color when set."
+    },
+    {
+      "type": "range",
+      "id": "custom_min_height",
+      "label": "Minimum Height (px)",
+      "min": 0,
+      "max": 1200,
+      "step": 50,
+      "default": 0,
+      "unit": "px",
+      "info": "Set to 0 for auto height."
+    },
+    {
+      "type": "range",
+      "id": "custom_font_size",
+      "label": "Content Font Size (px)",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "default": 0,
+      "unit": "px",
+      "info": "Set to 0 to use default size."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "check_item",
+      "name": "Benefit Check",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Benefit Text",
+          "default": "Instant Glow"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RITRUE CTA Offer",
+      "blocks": [
+        { "type": "check_item", "settings": { "text": "Instant Glow" } },
+        { "type": "check_item", "settings": { "text": "Removes Tan" } },
+        { "type": "check_item", "settings": { "text": "Evens Skin Tone" } },
+        { "type": "check_item", "settings": { "text": "Fresh & Radiant Skin" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

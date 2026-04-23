@@ -1,0 +1,342 @@
+/* ========================================
+   RITRUE Footer Overrides
+   Matches moulatymorocco.com footer aesthetic
+   Warm cream bg, Amiri serif, dark brown text
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --footer-brown: #57413F;
+  --footer-brown-light: #6B5553;
+  --footer-cream: #FEF4E4;
+  --footer-cream-dark: #F5E8D0;
+  --footer-gold: #C4AE78;
+  --footer-font-serif: 'Amiri', serif;
+}
+
+/* ── Wave Divider ── */
+.ritrue-wave-divider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  background: transparent;
+  margin-top: -1px;
+  /* margin-bottom: -1px; */
+}
+
+.ritrue-wave-divider svg {
+  display: block;
+  width: 200%;
+  height: 60px;
+  animation: ritrue-wave-slide 8s linear infinite;
+}
+
+@keyframes ritrue-wave-slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.ritrue-wave-divider .wave-1 {
+  animation: ritrue-wave-bob 4s ease-in-out infinite;
+}
+
+.ritrue-wave-divider .wave-2 {
+  animation: ritrue-wave-bob 3s ease-in-out infinite reverse;
+}
+
+.ritrue-wave-divider .wave-3 {
+  animation: ritrue-wave-bob 5s ease-in-out infinite;
+  animation-delay: -1s;
+}
+
+@keyframes ritrue-wave-bob {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .ritrue-wave-divider svg {
+    height: 80px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ritrue-wave-divider svg,
+  .ritrue-wave-divider .wave-1,
+  .ritrue-wave-divider .wave-2,
+  .ritrue-wave-divider .wave-3 {
+    animation: none;
+  }
+}
+
+/* ── Newsletter Section Override ── */
+.newsletter .newsletter__wrapper {
+  background-color: var(--footer-cream) !important;
+  color: var(--footer-brown) !important;
+  font-family: var(--footer-font-serif);
+  border-radius: 0 !important;
+}
+
+.newsletter .newsletter__wrapper h2,
+.newsletter .newsletter__wrapper .inline-richtext {
+  font-family: var(--footer-font-serif);
+  color: var(--footer-brown) !important;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.newsletter .newsletter__wrapper .newsletter__subheading,
+.newsletter .newsletter__wrapper .rte {
+  font-family: var(--footer-font-serif);
+  color: var(--footer-brown) !important;
+  font-style: italic;
+}
+
+.newsletter .newsletter-form .field {
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+
+.newsletter .newsletter-form .field:after {
+  box-shadow: 0 0 0 1px var(--footer-brown) !important;
+  border-radius: 0 !important;
+}
+
+.newsletter .newsletter-form .field:before {
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.newsletter .newsletter-form .field input {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  color: var(--footer-brown) !important;
+  font-family: var(--footer-font-serif);
+  font-size: 1rem;
+}
+
+.newsletter .newsletter-form .field__label {
+  color: var(--footer-brown-light) !important;
+  font-family: var(--footer-font-serif);
+  font-style: italic;
+}
+
+.newsletter .newsletter-form .field input::placeholder {
+  color: var(--footer-brown-light) !important;
+  font-style: italic;
+}
+
+.newsletter .newsletter-form__button {
+  background: var(--footer-brown) !important;
+  color: var(--footer-cream) !important;
+  border-radius: 0 !important;
+}
+
+/* ── Footer Section Override ── */
+.footer {
+  background-color: var(--footer-cream) !important;
+  color: var(--footer-brown) !important;
+  font-family: var(--footer-font-serif);
+  margin-top: 0 !important;
+  border-top: none !important;
+  /* padding-top: 0 !important; */
+}
+
+.footer * {
+  color: var(--footer-brown) !important;
+}
+
+/* ── Footer Headings ── */
+.footer-block__heading,
+.footer-block__heading.inline-richtext {
+  font-family: var(--footer-font-serif) !important;
+  font-weight: 700 !important;
+  font-size: 1.4rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.15em !important;
+  color: var(--footer-brown) !important;
+  margin-bottom: 1.2rem;
+}
+
+/* ── Footer Links ── */
+.footer-block__details-content .list-menu__item,
+.footer-block__details-content a {
+  font-family: var(--footer-font-serif);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--footer-brown) !important;
+  transition: opacity 0.2s ease;
+}
+
+.footer-block__details-content .list-menu__item:hover,
+.footer-block__details-content a:hover {
+  opacity: 0.7;
+  text-decoration: none !important;
+}
+
+/* ── Footer Text Blocks ── */
+.footer-block__details-content.rte {
+  font-family: var(--footer-font-serif);
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: var(--footer-brown) !important;
+}
+
+.footer-block__details-content.rte p {
+  margin-bottom: 0.5em;
+}
+
+/* ── Brand Info Block ── */
+.footer-block__brand-info {
+  font-family: var(--footer-font-serif);
+}
+
+.footer-block__brand-info .rte {
+  font-style: italic;
+  font-size: 1.25rem;
+}
+
+/* ── Social Icons ── */
+.footer__list-social .social-icons__link,
+.footer__list-social svg {
+  color: var(--footer-brown) !important;
+  fill: var(--footer-brown) !important;
+  transition: opacity 0.2s ease;
+}
+
+.footer__list-social .social-icons__link:hover {
+  opacity: 0.7;
+}
+
+/* ── Footer Grid — 3 column layout ── */
+.footer__blocks-wrapper {
+  gap: 4rem !important;
+}
+
+@media screen and (min-width: 750px) {
+  .footer__blocks-wrapper {
+    gap: 6rem !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+/* ── Bottom Section ── */
+.footer__content-bottom {
+  border-top: 1px solid var(--footer-cream-dark) !important;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+}
+
+.footer__content-bottom-wrapper {
+  gap: 1rem;
+}
+
+/* ── Payment Icons ── */
+.footer__payment .list-payment {
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.footer__payment .list-payment__item .icon {
+  width: 38px;
+  height: auto;
+}
+
+/* ── Copyright & Policies ── */
+.footer__copyright {
+  font-family: var(--footer-font-serif);
+  text-align: center;
+}
+
+.footer__copyright .copyright__content {
+  font-size: 0.95rem !important;
+  color: var(--footer-brown-light) !important;
+  font-style: italic;
+}
+
+.footer__copyright .copyright__content a {
+  color: var(--footer-brown-light) !important;
+  text-decoration: none;
+}
+
+.footer__copyright .copyright__content a:hover {
+  text-decoration: underline;
+}
+
+.footer .policies {
+  justify-content: center;
+  gap: 0.5rem 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer .policies a {
+  font-size: 0.95rem !important;
+  color: var(--footer-brown-light) !important;
+  font-style: italic;
+}
+
+/* ── Country/Language Selectors ── */
+.footer__localization .localization-form__select {
+  font-family: var(--footer-font-serif);
+  border: 1px solid var(--footer-cream-dark) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+
+.footer__localization h2 {
+  font-family: var(--footer-font-serif) !important;
+  font-size: 0.85rem !important;
+}
+
+/* ── Newsletter inside footer (if enabled) ── */
+.footer-block--newsletter {
+  margin-top: 0;
+  display: flex;
+  justify-content: center;
+  padding-top: 1.5rem;
+}
+
+/* ── Remove unwanted theme styles ── */
+.footer .gradient {
+  background: var(--footer-cream) !important;
+}
+
+/* ── Follow on Shop button ── */
+.footer__follow-on-shop {
+  display: none;
+}
+
+/* ── Responsive Adjustments ── */
+@media screen and (max-width: 749px) {
+  .footer__blocks-wrapper {
+    gap: 2.5rem !important;
+  }
+
+  .footer-block__heading {
+    font-size: 1.2rem !important;
+  }
+
+  .footer .footer__content-bottom-wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* ── Remove Powered By Shopify ── */
+.footer__copyright .copyright__content:nth-child(2) {
+  display: none;
+}

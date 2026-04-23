@@ -1,5 +1,6 @@
 {% comment %}theme-check-disable UndefinedObject{% endcomment %}
 {{ 'section-footer.css' | asset_url | stylesheet_tag }}
+{{ 'ritrue-footer.css' | asset_url | stylesheet_tag }}
 {{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
 {{ 'component-list-menu.css' | asset_url | stylesheet_tag }}
 {{ 'component-list-payment.css' | asset_url | stylesheet_tag }}
@@ -27,6 +28,13 @@
   }
 {%- endstyle -%}
 
+<div class="ritrue-wave-divider">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2880 80" preserveAspectRatio="none">
+    <path class="wave-1" d="M0,40 C180,80 360,0 540,40 C720,80 900,0 1080,40 C1260,80 1440,20 1620,40 C1800,80 1980,0 2160,40 C2340,80 2520,0 2700,40 C2880,80 2880,40 2880,40 L2880,80 L0,80 Z" fill="#57413F" opacity="0.08"/>
+    <path class="wave-2" d="M0,50 C240,80 480,20 720,50 C960,80 1200,20 1440,50 C1680,80 1920,20 2160,50 C2400,80 2640,20 2880,50 L2880,80 L0,80 Z" fill="#57413F" opacity="0.15"/>
+    <path class="wave-3" d="M0,60 C360,80 720,40 1080,60 C1440,80 1800,40 2160,60 C2520,80 2700,55 2880,60 L2880,80 L0,80 Z" fill="#FEF4E4"/>
+  </svg>
+</div>
 <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
   {%- liquid
     assign has_social_icons = true

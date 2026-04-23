@@ -1,0 +1,164 @@
+{% render 'ritrue-section-styles', section: section %}
+<div class="ritrue-how-to-use">
+  <div class="ritrue-container">
+    <h2 class="ritrue-section-heading">{{ section.settings.heading }}</h2>
+    {%- if section.settings.subheading != blank -%}
+      <p class="ritrue-section-subheading">{{ section.settings.subheading }}</p>
+    {%- endif -%}
+
+    <div class="ritrue-htu__inner">
+      <div class="ritrue-htu__steps">
+        {%- for block in section.blocks -%}
+          <div class="ritrue-htu__step ritrue-reveal" {{ block.shopify_attributes }}>
+            <div class="ritrue-htu__step-img-wrap">
+              {%- if block.settings.image != blank -%}
+                <img
+                  src="{{ block.settings.image | image_url: width: 400 }}"
+                  alt="Step {{ forloop.index }}"
+                  loading="lazy"
+                  width="400"
+                  height="500"
+                >
+              {%- else -%}
+                <div style="width:100%;height:100%;background:var(--ritrue-warm-bg,#F7F1E8);display:flex;align-items:center;justify-content:center;">{{ 'image' | placeholder_svg_tag }}</div>
+              {%- endif -%}
+              <span class="ritrue-htu__step-number-badge">{{ forloop.index }}</span>
+            </div>
+            <h3 class="ritrue-htu__step-title">{{ block.settings.title }}</h3>
+            <p class="ritrue-htu__step-desc">{{ block.settings.description }}</p>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      {%- if section.settings.product_image != blank -%}
+        <div class="ritrue-htu__product">
+          <img
+            src="{{ section.settings.product_image | image_url: width: 600 }}"
+            alt="Product"
+            loading="lazy"
+            width="600"
+            height="600"
+          >
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "RITRUE How to Use",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "HOW TO USE"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Your 15-minute glow ritual in 3 simple steps"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image",
+      "label": "Product Image"
+    },
+    {
+      "type": "header",
+      "content": "Section Customization"
+    },
+    {
+      "type": "color",
+      "id": "custom_bg_color",
+      "label": "Background Color",
+      "info": "Leave empty to use default."
+    },
+    {
+      "type": "image_picker",
+      "id": "custom_bg_image",
+      "label": "Background Image",
+      "info": "Overrides background color when set."
+    },
+    {
+      "type": "range",
+      "id": "custom_min_height",
+      "label": "Minimum Height (px)",
+      "min": 0,
+      "max": 1200,
+      "step": 50,
+      "default": 0,
+      "unit": "px",
+      "info": "Set to 0 for auto height."
+    },
+    {
+      "type": "range",
+      "id": "custom_font_size",
+      "label": "Content Font Size (px)",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "default": 0,
+      "unit": "px",
+      "info": "Set to 0 to use default size."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Step Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Step Title",
+          "default": "Apply"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Step Description",
+          "default": "Apply an even layer on clean, dry skin."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RITRUE How to Use",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "title": "APPLY",
+            "description": "Apply an even layer of the mask on clean, dry face."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "WAIT",
+            "description": "Relax & let it work for 15 minutes."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "WASH",
+            "description": "Rinse off with water & reveal a radiant glow."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

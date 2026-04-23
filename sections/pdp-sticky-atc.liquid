@@ -5,9 +5,9 @@
     left: 0;
     right: 0;
     z-index: 99;
-    background: #fff;
-    border-top: 1px solid #eaeaea;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
+    background: #FDFAEF;
+    border-top: 1px solid #E8DFD0;
+    box-shadow: none;
     padding: 1rem 1.5rem;
     display: none;
     transform: translateY(100%);
@@ -29,7 +29,7 @@
   .pdp-sticky-atc__image {
     width: 4.8rem;
     height: 4.8rem;
-    border-radius: 0.8rem;
+    border-radius: 0;
     overflow: hidden;
     flex-shrink: 0;
   }
@@ -47,20 +47,22 @@
 
   .pdp-sticky-atc__title {
     font-size: 1.2rem;
-    font-weight: 600;
+    font-weight: 400;
     line-height: 1.3;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     margin: 0;
-    color: #1e1e1e;
+    color: #57413F;
+    font-family: 'Amiri', serif;
   }
 
   .pdp-sticky-atc__price {
     font-size: 1.1rem;
-    font-weight: 500;
-    color: #333;
+    font-weight: 400;
+    color: #57413F;
     margin: 0;
+    font-family: 'Amiri', serif;
   }
 
   .pdp-sticky-atc__buttons {
@@ -70,20 +72,20 @@
   }
 
   .pdp-sticky-atc__btn {
-    font-family: var(--font-body-family), sans-serif;
+    font-family: 'Amiri', serif;
     font-size: 1.2rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
+    font-weight: 400;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     padding: 0.8rem 1.6rem;
-    border: none;
+    border: 1px solid #56403F;
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 0;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition: opacity 0.2s ease, background-color 0.2s ease;
+    transition: opacity 0.2s ease, background-color 0.25s ease, color 0.25s ease;
     line-height: 1;
   }
 
@@ -92,13 +94,23 @@
   }
 
   .pdp-sticky-atc__btn--add {
-    background: #f3f3f3;
-    color: #000;
+    background: transparent;
+    color: #56403F;
+  }
+
+  .pdp-sticky-atc__btn--add:hover {
+    background: #56403F;
+    color: #FEF4E4;
   }
 
   .pdp-sticky-atc__btn--buy {
-    background: #000;
-    color: #fff;
+    background: #56403F;
+    color: #FEF4E4;
+  }
+
+  .pdp-sticky-atc__btn--buy:hover {
+    background: transparent;
+    color: #56403F;
   }
 
   @media screen and (max-width: 749px) {

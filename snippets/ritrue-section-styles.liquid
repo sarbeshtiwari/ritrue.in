@@ -1,0 +1,55 @@
+{%- comment -%}
+  Shared inline styles for RITRUE sections.
+  Usage: {% render 'ritrue-section-styles', section: section %}
+  Expects section.settings to contain:
+    custom_bg_color, custom_bg_image, custom_min_height, custom_font_size
+{%- endcomment -%}
+
+{%- liquid
+  assign has_bg_color = false
+  assign has_bg_image = false
+  assign has_height = false
+  assign has_font = false
+
+  if section.settings.custom_bg_color != blank and section.settings.custom_bg_color != 'rgba(0,0,0,0)'
+    assign has_bg_color = true
+  endif
+  if section.settings.custom_bg_image != blank
+    assign has_bg_image = true
+  endif
+  if section.settings.custom_min_height != blank and section.settings.custom_min_height > 0
+    assign has_height = true
+  endif
+  if section.settings.custom_font_size != blank and section.settings.custom_font_size > 0
+    assign has_font = true
+  endif
+-%}
+
+{%- if has_bg_color or has_bg_image or has_height or has_font -%}
+  <style>
+    #shopify-section-{{ section.id }} > div:first-of-type {
+      {%- if has_bg_color -%}
+        background-color: {{ section.settings.custom_bg_color }} !important;
+      {%- endif -%}
+      {%- if has_bg_image -%}
+        background-image: url('{{ section.settings.custom_bg_image | image_url: width: 2000 }}') !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+      {%- endif -%}
+      {%- if has_height -%}
+        min-height: {{ section.settings.custom_min_height }}px !important;
+      {%- endif -%}
+      {%- if has_font -%}
+        font-size: {{ section.settings.custom_font_size }}px !important;
+      {%- endif -%}
+    }
+    {%- if has_font -%}
+      #shopify-section-{{ section.id }} p,
+      #shopify-section-{{ section.id }} span,
+      #shopify-section-{{ section.id }} li {
+        font-size: {{ section.settings.custom_font_size }}px !important;
+      }
+    {%- endif -%}
+  </style>
+{%- endif -%}

@@ -32,18 +32,19 @@
   }
 
   .pdp-promo-card {
-    border-radius: 1.2rem;
+    border-radius: 0;
     overflow: hidden;
     position: relative;
     display: flex;
     align-items: center;
     min-height: 14rem;
     padding: 2.4rem;
-    transition: box-shadow 0.2s ease;
+    transition: border-color 0.2s ease;
+    border: 1px solid #E8DFD0;
   }
 
   .pdp-promo-card:hover {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-color: #57413F;
   }
 
   .pdp-promo-card__bg {
@@ -74,47 +75,55 @@
 
   .pdp-promo-card__badge {
     display: inline-block;
-    background: #E85A28;
-    color: #fff;
+    background: #56403F;
+    color: #FEF4E4;
     font-size: 1rem;
-    font-weight: 700;
+    font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 0.3rem 1rem;
-    border-radius: 2rem;
+    letter-spacing: 0.15em;
+    padding: 0.4rem 1.2rem;
+    border-radius: 0;
     width: fit-content;
+    font-family: 'Amiri', serif;
   }
 
   .pdp-promo-card__title {
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 400;
     margin: 0;
     line-height: 1.2;
+    font-family: 'Amiri', serif;
+    color: #57413F;
   }
 
   .pdp-promo-card__subtitle {
     font-size: 1.3rem;
     margin: 0;
     opacity: 0.8;
+    font-family: 'Amiri', serif;
+    font-style: italic;
+    color: #8A7A70;
   }
 
   .pdp-promo-card__code {
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px dashed currentColor;
+    background: rgba(86, 64, 63, 0.08);
+    border: 1px dashed #56403F;
     padding: 0.4rem 1.2rem;
-    border-radius: 0.6rem;
+    border-radius: 0;
     font-size: 1.2rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
+    font-weight: 400;
+    letter-spacing: 0.1em;
     width: fit-content;
-    opacity: 0.9;
+    color: #57413F;
+    font-family: 'Amiri', serif;
   }
 {%- endstyle -%}
 
 <div class="pdp-promo-banner section-{{ section.id }}-padding">
+  {% render 'ritrue-section-styles', section: section %}
   <div class="page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
     {%- if section.blocks.size > 0 -%}
       <ul class="pdp-promo-banners__grid" role="list">
@@ -168,7 +177,7 @@
       "type": "color",
       "id": "background_color",
       "label": "Section background",
-      "default": "#ffffff"
+      "default": "#FDFAEF"
     },
     {
       "type": "range",
@@ -189,6 +198,41 @@
       "unit": "px",
       "label": "Bottom padding",
       "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Section Customization"
+    },
+    {
+      "type": "color",
+      "id": "custom_bg_color",
+      "label": "Custom background color"
+    },
+    {
+      "type": "image_picker",
+      "id": "custom_bg_image",
+      "label": "Custom background image",
+      "info": "Overrides background color when set."
+    },
+    {
+      "type": "range",
+      "id": "custom_min_height",
+      "min": 0,
+      "max": 1200,
+      "step": 50,
+      "unit": "px",
+      "label": "Minimum height",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "custom_font_size",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Content font size",
+      "default": 0
     }
   ],
   "blocks": [
@@ -224,13 +268,13 @@
           "type": "color",
           "id": "card_background",
           "label": "Card background",
-          "default": "#E8F5E9"
+          "default": "#F5F0E8"
         },
         {
           "type": "color",
           "id": "text_color",
           "label": "Text color",
-          "default": "#1e1e1e"
+          "default": "#57413F"
         },
         {
           "type": "image_picker",
@@ -255,7 +299,7 @@
             "badge": "Offer",
             "title": "Buy 2 Get 4 Free",
             "subtitle": "On all skincare products",
-            "card_background": "#E8F5E9"
+            "card_background": "#F5F0E8"
           }
         },
         {
@@ -265,7 +309,7 @@
             "title": "Up to 20% Off",
             "subtitle": "Use code at checkout",
             "coupon_code": "GLOW20",
-            "card_background": "#FFF39C"
+            "card_background": "#FEF4E4"
           }
         }
       ]

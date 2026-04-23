@@ -1,0 +1,115 @@
+{% render 'ritrue-section-styles', section: section %}
+<div class="ritrue-trust-strip">
+  <div class="ritrue-container">
+    <div class="ritrue-trust-strip__inner">
+      {%- for block in section.blocks -%}
+        <div class="ritrue-trust-strip__item" {{ block.shopify_attributes }}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            {%- case block.settings.icon -%}
+              {%- when 'check-circle' -%}
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+              {%- when 'heart' -%}
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              {%- when 'leaf' -%}
+                <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66L7 18" /><path d="M2 2s7.6 4.35 12 8c3.2 2.66 5.33 5.7 5.33 5.7"/>
+              {%- when 'shield' -%}
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              {%- when 'award' -%}
+                <circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+              {%- else -%}
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+            {%- endcase -%}
+          </svg>
+          <span>{{ block.settings.text }}</span>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "RITRUE Trust Strip",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Customization"
+    },
+    {
+      "type": "color",
+      "id": "custom_bg_color",
+      "label": "Background Color",
+      "info": "Leave empty to use default."
+    },
+    {
+      "type": "image_picker",
+      "id": "custom_bg_image",
+      "label": "Background Image",
+      "info": "Overrides background color when set."
+    },
+    {
+      "type": "range",
+      "id": "custom_min_height",
+      "label": "Minimum Height (px)",
+      "min": 0,
+      "max": 1200,
+      "step": 50,
+      "default": 0,
+      "unit": "px",
+      "info": "Set to 0 for auto height."
+    },
+    {
+      "type": "range",
+      "id": "custom_font_size",
+      "label": "Content Font Size (px)",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "default": 0,
+      "unit": "px",
+      "info": "Set to 0 to use default size."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "trust_item",
+      "name": "Trust Item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "check-circle", "label": "Check Circle" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "leaf", "label": "Leaf (Natural)" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "award", "label": "Award" }
+          ],
+          "default": "check-circle"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Dermatologically Tested"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RITRUE Trust Strip",
+      "blocks": [
+        { "type": "trust_item", "settings": { "icon": "check-circle", "text": "Dermatologically Tested" } },
+        { "type": "trust_item", "settings": { "icon": "heart", "text": "Suitable for All Skin Types" } },
+        { "type": "trust_item", "settings": { "icon": "leaf", "text": "Paraben Free" } },
+        { "type": "trust_item", "settings": { "icon": "shield", "text": "Cruelty Free" } },
+        { "type": "trust_item", "settings": { "icon": "award", "text": "Made with Safe Ingredients" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

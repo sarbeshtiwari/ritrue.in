@@ -1,0 +1,196 @@
+{% render 'ritrue-section-styles', section: section %}
+<div class="ritrue-problem-solution">
+  <div class="ritrue-container">
+    <div class="ritrue-ps__grid">
+      <div class="ritrue-ps__problem ritrue-reveal">
+        <h2 class="ritrue-ps__problem-title">{{ section.settings.problem_heading }}</h2>
+        <div class="ritrue-ps__problem-images">
+          <div>
+            <div class="ritrue-ps__problem-img">
+              {%- if section.settings.problem_image_1 != blank -%}
+                <img src="{{ section.settings.problem_image_1 | image_url: width: 400 }}" alt="{{ section.settings.problem_label_1 | escape }}" loading="lazy" width="400" height="533">
+              {%- else -%}
+                <div style="width:100%;aspect-ratio:3/4;background:var(--ritrue-warm-bg,#F7F1E8);display:flex;align-items:center;justify-content:center;">{{ 'image' | placeholder_svg_tag }}</div>
+              {%- endif -%}
+            </div>
+            {%- if section.settings.problem_label_1 != blank -%}
+              <p class="ritrue-ps__problem-label">{{ section.settings.problem_label_1 }}</p>
+            {%- endif -%}
+          </div>
+          <div>
+            <div class="ritrue-ps__problem-img">
+              {%- if section.settings.problem_image_2 != blank -%}
+                <img src="{{ section.settings.problem_image_2 | image_url: width: 400 }}" alt="{{ section.settings.problem_label_2 | escape }}" loading="lazy" width="400" height="533">
+              {%- else -%}
+                <div style="width:100%;aspect-ratio:3/4;background:var(--ritrue-warm-bg,#F7F1E8);display:flex;align-items:center;justify-content:center;">{{ 'image' | placeholder_svg_tag }}</div>
+              {%- endif -%}
+            </div>
+            {%- if section.settings.problem_label_2 != blank -%}
+              <p class="ritrue-ps__problem-label">{{ section.settings.problem_label_2 }}</p>
+            {%- endif -%}
+          </div>
+          <div>
+            <div class="ritrue-ps__problem-img">
+              {%- if section.settings.problem_image_3 != blank -%}
+                <img src="{{ section.settings.problem_image_3 | image_url: width: 400 }}" alt="{{ section.settings.problem_label_3 | escape }}" loading="lazy" width="400" height="533">
+              {%- else -%}
+                <div style="width:100%;aspect-ratio:3/4;background:var(--ritrue-warm-bg,#F7F1E8);display:flex;align-items:center;justify-content:center;">{{ 'image' | placeholder_svg_tag }}</div>
+              {%- endif -%}
+            </div>
+            {%- if section.settings.problem_label_3 != blank -%}
+              <p class="ritrue-ps__problem-label">{{ section.settings.problem_label_3 }}</p>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+
+      <div class="ritrue-ps__solution ritrue-reveal">
+        <h2 class="ritrue-ps__solution-title">{{ section.settings.solution_heading }}</h2>
+        <ul class="ritrue-ps__checklist">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'benefit' -%}
+              <li {{ block.shopify_attributes }}>
+                <svg class="ritrue-ps__check-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+                <span>{{ block.settings.text }}</span>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+        {%- if section.settings.solution_image != blank -%}
+          <div class="ritrue-ps__solution-img">
+            <img src="{{ section.settings.solution_image | image_url: width: 560 }}" alt="Solution" loading="lazy" width="560" height="560">
+          </div>
+        {%- else -%}
+          <div class="ritrue-ps__solution-img">
+            <div style="width:100%;aspect-ratio:1;background:var(--ritrue-warm-bg,#F7F1E8);border-radius:var(--ritrue-radius,16px);display:flex;align-items:center;justify-content:center;">{{ 'image' | placeholder_svg_tag }}</div>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "RITRUE Problem/Solution",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "problem_heading",
+      "label": "Problem Heading",
+      "default": "<p>TIRED OF <em>Dull, Tanned & Uneven Skin?</em></p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "problem_image_1",
+      "label": "Problem Image 1"
+    },
+    {
+      "type": "text",
+      "id": "problem_label_1",
+      "label": "Problem Label 1",
+      "default": "TAN & SUN DAMAGE"
+    },
+    {
+      "type": "image_picker",
+      "id": "problem_image_2",
+      "label": "Problem Image 2"
+    },
+    {
+      "type": "text",
+      "id": "problem_label_2",
+      "label": "Problem Label 2",
+      "default": "DULL & TIRED SKIN"
+    },
+    {
+      "type": "image_picker",
+      "id": "problem_image_3",
+      "label": "Problem Image 3"
+    },
+    {
+      "type": "text",
+      "id": "problem_label_3",
+      "label": "Problem Label 3",
+      "default": "UNEVEN SKIN TONE"
+    },
+    {
+      "type": "richtext",
+      "id": "solution_heading",
+      "label": "Solution Heading",
+      "default": "<p>MEET YOUR <em>15-MIN GLOW RITUAL</em></p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "solution_image",
+      "label": "Solution Product Image"
+    },
+    {
+      "type": "header",
+      "content": "Section Customization"
+    },
+    {
+      "type": "color",
+      "id": "custom_bg_color",
+      "label": "Background Color",
+      "info": "Leave empty to use default."
+    },
+    {
+      "type": "image_picker",
+      "id": "custom_bg_image",
+      "label": "Background Image",
+      "info": "Overrides background color when set."
+    },
+    {
+      "type": "range",
+      "id": "custom_min_height",
+      "label": "Minimum Height (px)",
+      "min": 0,
+      "max": 1200,
+      "step": 50,
+      "default": 0,
+      "unit": "px",
+      "info": "Set to 0 for auto height."
+    },
+    {
+      "type": "range",
+      "id": "custom_font_size",
+      "label": "Content Font Size (px)",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "default": 0,
+      "unit": "px",
+      "info": "Set to 0 to use default size."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Benefit Text",
+          "default": "Instantly removes tan & impurities"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RITRUE Problem/Solution",
+      "blocks": [
+        { "type": "benefit", "settings": { "text": "Instantly removes tan & impurities" } },
+        { "type": "benefit", "settings": { "text": "Brightens & evens skin tone" } },
+        { "type": "benefit", "settings": { "text": "Leaves skin radiant & refreshed" } },
+        { "type": "benefit", "settings": { "text": "Gentle yet effective on all skin types" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,257 @@
+{{ 'ritrue-homepage.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'ritrue-animations.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign hero_product = section.settings.product
+  if hero_product != blank
+    assign hero_product_url = hero_product.url
+  endif
+-%}
+
+{% render 'ritrue-section-styles', section: section %}
+<div class="ritrue-hero">
+  <div class="ritrue-container">
+    <div class="ritrue-hero__inner">
+      <div class="ritrue-hero__content">
+        <span class="ritrue-hero__badge">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/><path d="M19 13l.75 2.25L22 16l-2.25.75L19 19l-.75-2.25L16 16l2.25-.75L19 13z"/></svg>
+          {{ section.settings.badge_text }}
+        </span>
+
+        <h1 class="ritrue-hero__title">
+          <span class="ritrue-hero__title-line1">{{ section.settings.heading_line1 }}</span>
+          <span class="ritrue-hero__title-line2">{{ section.settings.heading_line2 }}</span>
+          <span class="ritrue-hero__title-line3">{{ section.settings.heading_line3 }}</span>
+        </h1>
+
+        <p class="ritrue-hero__subtitle">{{ section.settings.subtitle }}</p>
+        <p class="ritrue-hero__subtitle-desc">{{ section.settings.subtitle_desc }}</p>
+
+        <div class="ritrue-hero__benefits">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'benefit' -%}
+              <div class="ritrue-hero__benefit" {{ block.shopify_attributes }}>
+                <div class="ritrue-hero__benefit-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    {%- case block.settings.icon -%}
+                      {%- when 'sun' -%}
+                        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                      {%- when 'droplet' -%}
+                        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                      {%- when 'sparkles' -%}
+                        <path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/><path d="M19 13l.75 2.25L22 16l-2.25.75L19 19l-.75-2.25L16 16l2.25-.75L19 13z"/>
+                      {%- when 'shield' -%}
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                      {%- else -%}
+                        <circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>
+                    {%- endcase -%}
+                  </svg>
+                </div>
+                <span class="ritrue-hero__benefit-text">{{ block.settings.text }}</span>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+
+        <div class="ritrue-hero__cta-row">
+          <a href="{{ hero_product_url | default: section.settings.button_link }}" class="ritrue-btn ritrue-btn--navy ritrue-btn--large">
+            {{ section.settings.button_text }}
+          </a>
+          <div class="ritrue-hero__social-proof">
+            <span class="ritrue-stars">
+              {%- for i in (1..5) -%}
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              {%- endfor -%}
+            </span>
+            <span><strong>{{ section.settings.rating }}</strong> · {{ section.settings.customer_count }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ritrue-hero__media">
+        {%- if section.settings.model_image != blank -%}
+          <img
+            class="ritrue-hero__model-img"
+            src="{{ section.settings.model_image | image_url: width: 800 }}"
+            alt="Model"
+            loading="eager"
+            width="800"
+            height="800"
+          >
+        {%- else -%}
+          <div class="ritrue-hero__model-img" style="background:var(--ritrue-warm-bg,#F7F1E8);border-radius:18px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;max-width:520px;width:100%;">{{ 'image' | placeholder_svg_tag }}</div>
+        {%- endif -%}
+        {%- if section.settings.product_image != blank -%}
+          <img
+            class="ritrue-hero__product-img"
+            src="{{ section.settings.product_image | image_url: width: 400 }}"
+            alt="{{ section.settings.heading_line2 | escape }}"
+            loading="eager"
+            width="400"
+            height="400"
+          >
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "RITRUE Hero",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product",
+      "info": "Select a product so the SHOP NOW button links to its page."
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Text",
+      "default": "VIRAL MOROCCAN RITUAL"
+    },
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading Line 1 (Medium)",
+      "default": "MOROCCAN"
+    },
+    {
+      "type": "text",
+      "id": "heading_line2",
+      "label": "Heading Line 2 (Large)",
+      "default": "NILA"
+    },
+    {
+      "type": "text",
+      "id": "heading_line3",
+      "label": "Heading Line 3 (Medium)",
+      "default": "GLOW MASK"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle (Gold)",
+      "default": "15-MIN RADIANCE RITUAL"
+    },
+    {
+      "type": "text",
+      "id": "subtitle_desc",
+      "label": "Subtitle Description",
+      "default": "Visible Glow in Just 1 Use"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "rating",
+      "label": "Rating",
+      "default": "4.8"
+    },
+    {
+      "type": "text",
+      "id": "customer_count",
+      "label": "Customer Count Text",
+      "default": "10,000+ Happy Customers"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image",
+      "label": "Product Tube Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "model_image",
+      "label": "Model / Lifestyle Image"
+    },
+    {
+      "type": "header",
+      "content": "Section Customization"
+    },
+    {
+      "type": "color",
+      "id": "custom_bg_color",
+      "label": "Background Color",
+      "info": "Leave empty to use default."
+    },
+    {
+      "type": "image_picker",
+      "id": "custom_bg_image",
+      "label": "Background Image",
+      "info": "Overrides background color when set."
+    },
+    {
+      "type": "range",
+      "id": "custom_min_height",
+      "label": "Minimum Height (px)",
+      "min": 0,
+      "max": 1200,
+      "step": 50,
+      "default": 0,
+      "unit": "px",
+      "info": "Set to 0 for auto height."
+    },
+    {
+      "type": "range",
+      "id": "custom_font_size",
+      "label": "Content Font Size (px)",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "default": 0,
+      "unit": "px",
+      "info": "Set to 0 to use default size."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "sun", "label": "Sun (Tan)" },
+            { "value": "droplet", "label": "Droplet (Skin Tone)" },
+            { "value": "sparkles", "label": "Sparkles (Radiance)" },
+            { "value": "shield", "label": "Shield (Refine)" }
+          ],
+          "default": "sun"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Benefit Text",
+          "default": "Removes Tan"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RITRUE Hero",
+      "blocks": [
+        { "type": "benefit", "settings": { "icon": "sun", "text": "Removes Tan" } },
+        { "type": "benefit", "settings": { "icon": "droplet", "text": "Evens Skin Tone" } },
+        { "type": "benefit", "settings": { "icon": "sparkles", "text": "Boosts Radiance" } },
+        { "type": "benefit", "settings": { "icon": "shield", "text": "Refines Skin" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
