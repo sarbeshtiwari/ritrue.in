@@ -327,7 +327,7 @@
         "heading_size": "h1",
         "subheading": "Drag to see the difference",
         "columns": "1",
-        "image_ratio_key": "portrait",
+        "image_ratio_key": "landscape",
         "background_color": "#fdfaef",
         "padding_top": 40,
         "padding_bottom": 40,
