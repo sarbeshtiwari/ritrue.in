@@ -46,27 +46,29 @@
 
       <div class="ritrue-ps__solution ritrue-reveal">
         <h2 class="ritrue-ps__solution-title">{{ section.settings.solution_heading }}</h2>
-        <ul class="ritrue-ps__checklist">
-          {%- for block in section.blocks -%}
-            {%- if block.type == 'benefit' -%}
-              <li {{ block.shopify_attributes }}>
-                <svg class="ritrue-ps__check-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
-                </svg>
-                <span>{{ block.settings.text }}</span>
-              </li>
-            {%- endif -%}
-          {%- endfor -%}
-        </ul>
-        {%- if section.settings.solution_image != blank -%}
-          <div class="ritrue-ps__solution-img">
-            <img src="{{ section.settings.solution_image | image_url: width: 560 }}" alt="Solution" loading="lazy" width="560" height="560">
-          </div>
-        {%- else -%}
-          <div class="ritrue-ps__solution-img">
-            <div style="width:100%;aspect-ratio:1;background:var(--ritrue-warm-bg,#F7F1E8);border-radius:var(--ritrue-radius,16px);display:flex;align-items:center;justify-content:center;">{{ 'image' | placeholder_svg_tag }}</div>
-          </div>
-        {%- endif -%}
+        <div class="ritrue-ps__solution-content">
+          <ul class="ritrue-ps__checklist">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'benefit' -%}
+                <li {{ block.shopify_attributes }}>
+                  <svg class="ritrue-ps__check-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+                  </svg>
+                  <span>{{ block.settings.text }}</span>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+          {%- if section.settings.solution_image != blank -%}
+            <div class="ritrue-ps__solution-img">
+              <img src="{{ section.settings.solution_image | image_url: width: 400 }}" alt="Solution" loading="lazy" width="400" height="400">
+            </div>
+          {%- else -%}
+            <div class="ritrue-ps__solution-img">
+              <div style="width:100%;aspect-ratio:1;background:var(--ritrue-warm-bg,#F7F1E8);border-radius:var(--ritrue-radius,16px);display:flex;align-items:center;justify-content:center;">{{ 'image' | placeholder_svg_tag }}</div>
+            </div>
+          {%- endif -%}
+        </div>
       </div>
     </div>
   </div>

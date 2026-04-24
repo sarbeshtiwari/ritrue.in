@@ -11,58 +11,14 @@
   "sections": {
     "ritrue_hero": {
       "type": "ritrue-hero",
-      "blocks": {
-        "benefit_1": {
-          "type": "benefit",
-          "settings": {
-            "icon": "sun",
-            "text": "Removes Tan"
-          }
-        },
-        "benefit_2": {
-          "type": "benefit",
-          "settings": {
-            "icon": "droplet",
-            "text": "Evens Skin Tone"
-          }
-        },
-        "benefit_3": {
-          "type": "benefit",
-          "settings": {
-            "icon": "sparkles",
-            "text": "Boosts Radiance"
-          }
-        },
-        "benefit_4": {
-          "type": "benefit",
-          "settings": {
-            "icon": "shield",
-            "text": "Refines Skin"
-          }
-        }
-      },
-      "block_order": [
-        "benefit_1",
-        "benefit_2",
-        "benefit_3",
-        "benefit_4"
-      ],
+      "blocks": {},
+      "block_order": [],
       "settings": {
         "product": "ritrue-moroccan-nila-powder-50g",
-        "badge_text": "VIRAL MOROCCAN RITUAL",
-        "heading_line1": "MOROCCAN",
-        "heading_line2": "NILA",
-        "heading_line3": "GLOW MASK",
-        "subtitle": "15-MIN RADIANCE RITUAL",
-        "subtitle_desc": "Visible Glow in Just 1 Use",
-        "button_text": "SHOP NOW",
+        "desktop_image": "",
+        "mobile_image": "",
         "button_link": "shopify://products/ritrue-moroccan-nila-powder-50g",
-        "rating": "4.8",
-        "customer_count": "10,000+ Happy Customers",
-        "product_image": "shopify://shop_images/new233.jpg",
-        "model_image": "shopify://shop_images/Artboard1_jpg.jpg",
         "custom_bg_color": "",
-        "custom_bg_image": "shopify://shop_images/model-laughs-barefoot.jpg",
         "custom_min_height": 0,
         "custom_font_size": 0
       }
@@ -575,6 +531,7 @@
       "settings": {
         "caption": "",
         "heading": "FREQUENTLY ASKED QUESTIONS",
+        "section_anchor_id": "faqs",
         "heading_size": "h1",
         "heading_alignment": "center",
         "layout": "none",

@@ -47,32 +47,65 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "shop_links": {
-          "type": "link_list",
+        "brand_block": {
+          "type": "brand_information",
           "settings": {
-            "heading": "Shop",
-            "menu": "main-menu"
+            "heading": "RITRUE",
+            "subtext": "<p>Ritual-based skincare powered by real ingredients.</p>",
+            "show_social": false
           }
         },
         "quick_links": {
           "type": "link_list",
           "settings": {
             "heading": "Quick Links",
+            "menu": "main-menu"
+          }
+        },
+        "customer_support": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Customer Support",
             "menu": "footer"
           }
         },
-        "need_help": {
+        "legal": {
           "type": "text",
           "settings": {
-            "heading": "Need Help?",
-            "subtext": "<p>\ud83d\udce7 support@ritrue.in<br>\ud83d\udcf1 WhatsApp: +91 XXXXX XXXXX<br>\ud83d\udd50 Mon\u2013Sat, 10am\u20136pm IST</p>"
+            "heading": "Legal",
+            "subtext": "<p><a href=\"/policies/privacy-policy\">Privacy Policy</a><br><a href=\"/policies/terms-of-service\">Terms & Conditions</a></p>"
+          }
+        },
+        "contact_info": {
+          "type": "text",
+          "settings": {
+            "heading": "Contact Info",
+            "subtext": "<p>📧 support@ritrue.in<br>📱 WhatsApp: +91 XXXXX XXXXX<br>🕐 Mon–Sat, 10am–6pm IST</p>"
+          }
+        },
+        "social_proof": {
+          "type": "text",
+          "settings": {
+            "heading": "Follow Us",
+            "subtext": "<p><a href=\"https://www.instagram.com/ritrue.in/\" target=\"_blank\">📸 Instagram</a><br><a href=\"#\" target=\"_blank\">▶️ YouTube</a></p>"
+          }
+        },
+        "trust_badges": {
+          "type": "text",
+          "settings": {
+            "heading": "Trust & Safety",
+            "subtext": "<p>🔒 Secure Payment<br>🧪 Dermatologically Tested<br>🌿 Safe Ingredients</p>"
           }
         }
       },
       "block_order": [
-        "shop_links",
+        "brand_block",
         "quick_links",
-        "need_help"
+        "customer_support",
+        "legal",
+        "contact_info",
+        "social_proof",
+        "trust_badges"
       ],
       "settings": {
         "color_scheme": "scheme-1",

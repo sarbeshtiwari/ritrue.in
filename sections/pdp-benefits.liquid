@@ -17,8 +17,8 @@
 
   .pdp-benefits__heading {
     text-align: center;
-    margin-bottom: 3.6rem;
-    font-size: 2.4rem;
+    margin-bottom: 4rem;
+    font-size: 3.2rem;
     font-weight: 400;
     color: #57413F;
     font-family: 'Amiri', serif;
@@ -27,7 +27,7 @@
   .pdp-benefits__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
+    gap: 4rem;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -36,7 +36,7 @@
   @media screen and (max-width: 749px) {
     .pdp-benefits__grid {
       grid-template-columns: 1fr;
-      gap: 2.4rem;
+      gap: 3rem;
     }
   }
 
@@ -45,7 +45,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 2rem;
+    padding: 2.4rem;
   }
 
   .pdp-benefits__image-wrapper {
@@ -53,8 +53,14 @@
     height: {{ section.settings.image_size }}px;
     border-radius: 50%;
     overflow: hidden;
-    margin-bottom: 1.6rem;
-    border: 1px solid #E8DFD0;
+    margin-bottom: 2rem;
+    border: 2px solid #C4AE78;
+    box-shadow: 0 0 0 4px rgba(196, 174, 120, 0.15);
+    transition: transform 0.3s ease;
+  }
+
+  .pdp-benefits__card:hover .pdp-benefits__image-wrapper {
+    transform: scale(1.05);
   }
 
   .pdp-benefits__image-wrapper img {
@@ -79,19 +85,19 @@
   }
 
   .pdp-benefits__card-title {
-    font-size: 1.6rem;
+    font-size: 2.2rem;
     font-weight: 400;
     color: #57413F;
-    margin: 0 0 0.8rem;
+    margin: 0 0 1rem;
     line-height: 1.3;
     font-family: 'Amiri', serif;
   }
 
   .pdp-benefits__card-text {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     color: #8A7A70;
     margin: 0;
-    line-height: 1.5;
+    line-height: 1.6;
     font-family: 'Amiri', serif;
     font-style: italic;
   }
@@ -169,7 +175,7 @@
       "max": 200,
       "step": 10,
       "label": "Image size (px)",
-      "default": 120
+      "default": 160
     },
     {
       "type": "color",

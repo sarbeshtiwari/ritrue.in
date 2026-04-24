@@ -21,9 +21,9 @@
   width: 100%;
   overflow: hidden;
   line-height: 0;
-  background: transparent;
+  background: var(--footer-cream);
   margin-top: -1px;
-  /* margin-bottom: -1px; */
+  margin-bottom: -1px;
 }
 
 .ritrue-wave-divider svg {
@@ -93,6 +93,7 @@
   color: var(--footer-brown) !important;
   font-weight: 400;
   letter-spacing: 0.02em;
+  font-size: 3rem;
 }
 
 .newsletter .newsletter__wrapper .newsletter__subheading,
@@ -100,6 +101,7 @@
   font-family: var(--footer-font-serif);
   color: var(--footer-brown) !important;
   font-style: italic;
+  font-size: 1.5rem;
 }
 
 .newsletter .newsletter-form .field {
@@ -124,13 +126,16 @@
   border-radius: 0 !important;
   color: var(--footer-brown) !important;
   font-family: var(--footer-font-serif);
-  font-size: 1rem;
+  font-size: 1.3rem;
+  min-height: 62px;
+  padding: 18px 22px;
 }
 
 .newsletter .newsletter-form .field__label {
   color: var(--footer-brown-light) !important;
   font-family: var(--footer-font-serif);
   font-style: italic;
+  font-size: 1.25rem;
 }
 
 .newsletter .newsletter-form .field input::placeholder {
@@ -142,6 +147,9 @@
   background: var(--footer-brown) !important;
   color: var(--footer-cream) !important;
   border-radius: 0 !important;
+  min-height: 62px;
+  padding: 18px 30px;
+  font-size: 1.3rem;
 }
 
 /* ── Footer Section Override ── */
@@ -158,16 +166,29 @@
   color: var(--footer-brown) !important;
 }
 
+.footer a,
+.footer a:visited,
+.footer .rte a,
+.footer .list-menu__item {
+  text-decoration: none !important;
+}
+
+.footer a:hover,
+.footer .rte a:hover,
+.footer .list-menu__item:hover {
+  text-decoration: underline !important;
+}
+
 /* ── Footer Headings ── */
 .footer-block__heading,
 .footer-block__heading.inline-richtext {
   font-family: var(--footer-font-serif) !important;
   font-weight: 700 !important;
-  font-size: 1.4rem !important;
+  font-size: 1.75rem !important;
   text-transform: uppercase !important;
   letter-spacing: 0.15em !important;
   color: var(--footer-brown) !important;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.5rem;
 }
 
 /* ── Footer Links ── */
@@ -175,7 +196,7 @@
 .footer-block__details-content a {
   font-family: var(--footer-font-serif);
   font-style: italic;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: var(--footer-brown) !important;
   transition: opacity 0.2s ease;
 }
@@ -190,7 +211,7 @@
 .footer-block__details-content.rte {
   font-family: var(--footer-font-serif);
   font-style: italic;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   line-height: 1.7;
   color: var(--footer-brown) !important;
 }
@@ -206,7 +227,7 @@
 
 .footer-block__brand-info .rte {
   font-style: italic;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 
 /* ── Social Icons ── */
@@ -221,15 +242,15 @@
   opacity: 0.7;
 }
 
-/* ── Footer Grid — 3 column layout ── */
+/* ── Footer Grid — 4 column desktop, 2 column tablet ── */
 .footer__blocks-wrapper {
-  gap: 4rem !important;
+  gap: 3rem !important;
 }
 
 @media screen and (min-width: 750px) {
   .footer__blocks-wrapper {
-    gap: 6rem !important;
-    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 3rem 4rem !important;
+    grid-template-columns: repeat(4, 1fr) !important;
   }
 }
 
@@ -262,7 +283,7 @@
 }
 
 .footer__copyright .copyright__content {
-  font-size: 0.95rem !important;
+  font-size: 1.05rem !important;
   color: var(--footer-brown-light) !important;
   font-style: italic;
 }
@@ -283,7 +304,7 @@
 }
 
 .footer .policies a {
-  font-size: 0.95rem !important;
+  font-size: 1.05rem !important;
   color: var(--footer-brown-light) !important;
   font-style: italic;
 }
@@ -299,6 +320,26 @@
 .footer__localization h2 {
   font-family: var(--footer-font-serif) !important;
   font-size: 0.85rem !important;
+}
+
+.footer-trust-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.footer-trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--footer-font-serif);
+  font-size: 1.35rem;
+  color: var(--footer-brown);
+}
+
+.footer-trust-badge svg {
+  flex-shrink: 0;
+  color: var(--footer-brown);
 }
 
 /* ── Newsletter inside footer (if enabled) ── */
@@ -326,7 +367,7 @@
   }
 
   .footer-block__heading {
-    font-size: 1.2rem !important;
+    font-size: 1.35rem !important;
   }
 
   .footer .footer__content-bottom-wrapper {

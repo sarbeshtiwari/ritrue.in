@@ -1,5 +1,5 @@
 {% render 'ritrue-section-styles', section: section %}
-<div class="ritrue-reviews">
+<div id="reviews" class="ritrue-reviews">
   <div class="ritrue-container">
     <h2 class="ritrue-section-heading">{{ section.settings.heading }}</h2>
     {%- if section.settings.subheading != blank -%}
@@ -9,6 +9,11 @@
     <div class="ritrue-reviews__grid">
       {%- for block in section.blocks -%}
         <div class="ritrue-review-card ritrue-reveal" {{ block.shopify_attributes }}>
+          {%- if block.settings.customer_image != blank -%}
+            <div class="ritrue-review-card__avatar">
+              <img src="{{ block.settings.customer_image | image_url: width: 128 }}" alt="{{ block.settings.author_name | escape }}" loading="lazy" width="128" height="128">
+            </div>
+          {%- endif -%}
           <div class="ritrue-review-card__stars">
             {%- assign star_count = block.settings.stars | default: 5 -%}
             {%- for i in (1..star_count) -%}
@@ -84,6 +89,11 @@
       "type": "review",
       "name": "Review",
       "settings": [
+        {
+          "type": "image_picker",
+          "id": "customer_image",
+          "label": "Customer Photo"
+        },
         {
           "type": "range",
           "id": "stars",

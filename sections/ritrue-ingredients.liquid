@@ -1,5 +1,5 @@
 {% render 'ritrue-section-styles', section: section %}
-<div class="ritrue-ingredients">
+<div id="ingredients" class="ritrue-ingredients">
   <div class="ritrue-container">
     <h2 class="ritrue-section-heading">{{ section.settings.heading }}</h2>
     {%- if section.settings.subheading != blank -%}
@@ -12,14 +12,14 @@
           <div class="ritrue-ingredient-card__img">
             {%- if block.settings.image != blank -%}
               <img
-                src="{{ block.settings.image | image_url: width: 600 }}"
+                src="{{ block.settings.image | image_url: width: 400 }}"
                 alt="{{ block.settings.name | escape }}"
                 loading="lazy"
-                width="600"
-                height="450"
+                width="400"
+                height="400"
               >
             {%- else -%}
-              <div style="width:100%;height:100%;background:var(--ritrue-warm-bg,#F7F1E8);border-radius:50%;display:flex;align-items:center;justify-content:center;">{{ 'image' | placeholder_svg_tag }}</div>
+              <div style="width:100%;height:100%;background:var(--ritrue-warm-bg,#F7F1E8);display:flex;align-items:center;justify-content:center;">{{ 'image' | placeholder_svg_tag }}</div>
             {%- endif -%}
           </div>
           <div class="ritrue-ingredient-card__body">

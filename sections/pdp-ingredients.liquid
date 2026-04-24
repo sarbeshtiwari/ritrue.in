@@ -17,8 +17,8 @@
 
   .pdp-ingredients__heading {
     text-align: center;
-    margin-bottom: 3.6rem;
-    font-size: 2.4rem;
+    margin-bottom: 4rem;
+    font-size: 3.2rem;
     font-weight: 400;
     color: #57413F;
     font-family: 'Amiri', serif;
@@ -27,7 +27,7 @@
   .pdp-ingredients__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2.4rem;
+    gap: 3.2rem;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -35,83 +35,98 @@
 
   @media screen and (max-width: 749px) {
     .pdp-ingredients__grid {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      gap: 1.6rem;
-      padding-bottom: 1rem;
-    }
-
-    .pdp-ingredients__grid::-webkit-scrollbar {
-      display: none;
-    }
-
-    .pdp-ingredients__card {
-      min-width: 75vw;
-      scroll-snap-align: start;
+      grid-template-columns: 1fr;
+      max-width: 360px;
+      margin-left: auto;
+      margin-right: auto;
+      gap: 2.4rem;
     }
   }
 
   .pdp-ingredients__card {
     background: #fff;
-    border-radius: 0;
+    border-radius: 16px;
     overflow: hidden;
-    border: 1px solid #E8DFD0;
-    transition: border-color 0.2s ease;
+    box-shadow: 0 2px 12px rgba(46, 42, 57, 0.06);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    padding: 3.6rem 2.8rem 3.2rem;
+    text-align: center;
+    border: none;
   }
 
   .pdp-ingredients__card:hover {
-    border-color: #57413F;
+    box-shadow: 0 6px 24px rgba(46, 42, 57, 0.1);
+    transform: translateY(-4px);
   }
 
   .pdp-ingredients__card-image {
-    width: 100%;
-    aspect-ratio: 4 / 3;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 2.4rem;
+    border-radius: 50%;
     overflow: hidden;
-    background: #F5F0E8;
+    border: 3px solid #C4AE78;
+    box-shadow: 0 0 0 6px rgba(196, 174, 120, 0.15);
+    aspect-ratio: auto;
+    background: transparent;
   }
 
   .pdp-ingredients__card-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .pdp-ingredients__card:hover .pdp-ingredients__card-image img {
+    transform: scale(1.08);
   }
 
   .pdp-ingredients__card-body {
-    padding: 2rem;
+    padding: 0;
+    text-align: center;
   }
 
   .pdp-ingredients__badge {
     display: inline-block;
     background: {{ section.settings.badge_color }};
     color: #FEF4E4;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding: 0.4rem 1rem;
+    letter-spacing: 0.12em;
+    padding: 0.5rem 1.2rem;
     border-radius: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
     font-family: 'Amiri', serif;
   }
 
   .pdp-ingredients__card-title {
-    font-size: 1.8rem;
-    font-weight: 400;
+    font-size: 2.2rem;
+    font-weight: 600;
     color: #57413F;
-    margin: 0 0 0.8rem;
+    margin: 0 0 1.2rem;
     line-height: 1.3;
     font-family: 'Amiri', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
   }
 
   .pdp-ingredients__card-text {
-    font-size: 1.3rem;
-    color: #8A7A70;
+    font-size: 1.5rem;
+    color: #57413F;
+    opacity: 0.7;
     margin: 0;
-    line-height: 1.6;
+    line-height: 1.65;
     font-family: 'Amiri', serif;
     font-style: italic;
+  }
+
+  @media screen and (max-width: 749px) {
+    .pdp-ingredients__card-image {
+      width: 140px;
+      height: 140px;
+    }
   }
 {%- endstyle -%}
 
@@ -139,7 +154,7 @@
               {%- if block.settings.image != blank -%}
                 {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', widths: '300, 400, 600, 800', sizes: '(min-width: 750px) 33vw, 75vw' }}
               {%- else -%}
-                <div style="width:100%;height:100%;background:#F5F0E8;display:flex;align-items:center;justify-content:center;">{{ 'image' | placeholder_svg_tag }}</div>
+                <div style="width:100%;height:100%;background:#F5F0E8;display:flex;align-items:center;justify-content:center;border-radius:50%;">{{ 'image' | placeholder_svg_tag }}</div>
               {%- endif -%}
             </div>
             <div class="pdp-ingredients__card-body">
