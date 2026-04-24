@@ -22,7 +22,9 @@
           }
         }
       },
-      "block_order": ["announcement-bar-0"],
+      "block_order": [
+        "announcement-bar-0"
+      ],
       "settings": {
         "auto_rotate": false,
         "change_slides_speed": 5,
@@ -40,7 +42,7 @@
         "mobile_logo_position": "center",
         "menu": "main-menu",
         "menu_type_desktop": "dropdown",
-        "sticky_header_type": "on-scroll-up",
+        "sticky_header_type": "reduce-logo-size",
         "show_line_separator": false,
         "color_scheme": "scheme-1",
         "menu_color_scheme": "scheme-1",
@@ -49,9 +51,13 @@
         "enable_customer_avatar": false,
         "margin_bottom": 0,
         "padding_top": 4,
-        "padding_bottom": 4
+        "padding_bottom": 4,
+        "nav_font_size": 14
       }
     }
   },
-  "order": ["announcement-bar", "header"]
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
 }
