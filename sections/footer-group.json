@@ -50,8 +50,6 @@
         "brand_block": {
           "type": "brand_information",
           "settings": {
-            "heading": "RITRUE",
-            "subtext": "<p>Ritual-based skincare powered by real ingredients.</p>",
             "show_social": false
           }
         },
@@ -87,7 +85,7 @@
           "type": "text",
           "settings": {
             "heading": "Follow Us",
-            "subtext": "<p><a href=\"https://www.instagram.com/ritrue.in/\" target=\"_blank\">📸 Instagram</a><br><a href=\"#\" target=\"_blank\">▶️ YouTube</a></p>"
+            "subtext": "<p><a href=\"https://www.instagram.com/ritrue.in/\" target=\"_blank\">📸 Instagram</a><br/><a href=\"#\" target=\"_blank\">▶️ YouTube</a></p>"
           }
         },
         "trust_badges": {

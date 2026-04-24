@@ -11,12 +11,10 @@
   "sections": {
     "ritrue_hero": {
       "type": "ritrue-hero",
-      "blocks": {},
-      "block_order": [],
       "settings": {
         "product": "ritrue-moroccan-nila-powder-50g",
-        "desktop_image": "",
-        "mobile_image": "",
+        "desktop_image": "shopify://shop_images/Web_banner_copy_jpg.jpg",
+        "mobile_image": "shopify://shop_images/Mobile_banner_copy_jpg.jpg",
         "button_link": "shopify://products/ritrue-moroccan-nila-powder-50g",
         "custom_bg_color": "",
         "custom_min_height": 0,
@@ -72,7 +70,7 @@
       "settings": {
         "custom_bg_color": "",
         "custom_min_height": 0,
-        "custom_font_size": 14
+        "custom_font_size": 12
       }
     },
     "ritrue_problem_solution": {
@@ -263,6 +261,7 @@
       "settings": {
         "heading": "HOW TO USE",
         "subheading": "Your 15-minute glow ritual in 3 simple steps",
+        "background_image": "shopify://shop_images/model-laughs-barefoot.jpg",
         "custom_bg_color": "",
         "custom_min_height": 0,
         "custom_font_size": 0
@@ -274,6 +273,7 @@
         "rev_1": {
           "type": "review",
           "settings": {
+            "customer_image": "shopify://shop_images/SRM_Tan_Removal_01_15576eaca9_1c3ec3c3-a7b4-42ca-908b-2efcf5d10059.webp",
             "stars": 5,
             "review_text": "My tan is literally gone! Skin looks brighter, smoother & so fresh.",
             "author_name": "Aishwarya R",
@@ -283,6 +283,7 @@
         "rev_2": {
           "type": "review",
           "settings": {
+            "customer_image": "shopify://shop_images/SRM_Brightening_02_eff6150618.webp",
             "stars": 5,
             "review_text": "Used it before an event & the glow was unreal!",
             "author_name": "Neha S",
@@ -406,7 +407,7 @@
         "ck_4"
       ],
       "settings": {
-        "product": "",
+        "product": "ritrue-moroccan-nila-powder-50g",
         "heading": "YOUR GLOW RITUAL STARTS HERE",
         "subtext": "Transform your skin in just 15 minutes. Glow like never before!",
         "sale_price": "₹799",
@@ -415,6 +416,7 @@
         "button_text": "SHOP NOW",
         "button_link": "",
         "urgency_text": "Hurry! Limited Stock Available.",
+        "product_image": "shopify://shop_images/Artboard1_jpg.jpg",
         "badge_number": "15",
         "badge_text": "MINUTES TO GLOWING SKIN",
         "custom_bg_color": "",
@@ -529,9 +531,9 @@
         "faq_10"
       ],
       "settings": {
+        "section_anchor_id": "faqs",
         "caption": "",
         "heading": "FREQUENTLY ASKED QUESTIONS",
-        "section_anchor_id": "faqs",
         "heading_size": "h1",
         "heading_alignment": "center",
         "layout": "none",

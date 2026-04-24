@@ -9,7 +9,9 @@
  */
 {
   "current": {
+    "logo": "shopify://shop_images/Logo.png",
     "logo_width": 50,
+    "favicon": "shopify://shop_images/Logo.png",
     "type_header_font": "poppins_n5",
     "heading_scale": 130,
     "type_body_font": "poppins_n4",
@@ -105,8 +107,9 @@
     "badge_corner_radius": 20,
     "sale_badge_color_scheme": "scheme-5",
     "sold_out_badge_color_scheme": "scheme-3",
-    "brand_headline": "",
+    "brand_headline": "Ritual-based skincare powered by real ingredients",
     "brand_description": "<p></p>",
+    "brand_image": "shopify://shop_images/Logo.png",
     "brand_image_width": 100,
     "social_facebook_link": "",
     "social_instagram_link": "",
