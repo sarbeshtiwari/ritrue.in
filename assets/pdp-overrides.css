@@ -172,35 +172,70 @@ product-info.gradient,
   background-color: transparent !important;
   border: 1px solid var(--pdp-brown) !important;
   border-radius: 0 !important;
-  overflow: hidden;
-  min-height: 5.6rem;
+  overflow: visible;
+  min-height: 6rem;
+  width: 18rem !important;
+  display: flex;
+  align-items: stretch;
 }
 
 .product-form__quantity .quantity::before,
 .product-form__quantity .quantity::after {
-  background: transparent !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
+  display: none !important;
 }
 
 .product-form__quantity .quantity__input {
   color: var(--pdp-brown) !important;
   background-color: transparent !important;
   font-family: var(--pdp-font-serif) !important;
-  font-size: 1.8rem !important;
+  font-size: 2rem !important;
+  font-weight: 500 !important;
   opacity: 1;
-  min-width: 4.5rem;
+  flex: 1;
+  min-width: 5rem;
+  text-align: center;
+  border: 0 !important;
+  padding: 0 0.5rem !important;
+  -moz-appearance: textfield;
+}
+
+.product-form__quantity .quantity__input::-webkit-inner-spin-button,
+.product-form__quantity .quantity__input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .product-form__quantity .quantity__button {
   color: var(--pdp-brown) !important;
   background-color: transparent !important;
-  width: 5rem;
+  width: 6rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border: 0 !important;
+  padding: 0 !important;
+  position: relative;
+}
+
+.product-form__quantity .quantity__button:hover {
+  background-color: rgba(86, 64, 63, 0.06) !important;
 }
 
 .product-form__quantity .quantity__button .svg-wrapper {
-  width: 1.6rem;
-  height: 1.6rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.product-form__quantity .quantity__button .svg-wrapper svg {
+  width: 100%;
+  height: 100%;
 }
 
 .product-form__quantity .quantity__button:focus,
@@ -208,12 +243,15 @@ product-info.gradient,
 .product-form__quantity .quantity__input:focus,
 .product-form__quantity .quantity__input:focus-visible {
   background-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .quantity__label,
 .quantity__label .form__label {
   font-family: var(--pdp-font-serif) !important;
   color: var(--pdp-brown) !important;
+  font-size: 1.8rem !important;
 }
 
 /* ----- Collapsible Tabs / Accordions ----- */
