@@ -125,7 +125,8 @@ product-info.gradient,
   text-transform: uppercase !important;
   font-size: 2rem !important;
   box-shadow: none !important;
-  min-height: auto;
+  min-height: 6rem !important;
+  padding: 1.5rem 3rem !important;
 }
 
 .shopify-payment-button .shopify-payment-button__button::before,

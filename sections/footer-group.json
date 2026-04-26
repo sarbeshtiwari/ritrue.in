@@ -100,10 +100,10 @@
         "brand_block",
         "quick_links",
         "customer_support",
-        "legal",
+        "trust_badges",
         "contact_info",
-        "social_proof",
-        "trust_badges"
+        "legal",
+        "social_proof"
       ],
       "settings": {
         "color_scheme": "scheme-1",

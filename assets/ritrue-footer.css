@@ -249,8 +249,20 @@
 
 @media screen and (min-width: 750px) {
   .footer__blocks-wrapper {
-    gap: 3rem 4rem !important;
+    display: grid !important;
     grid-template-columns: repeat(4, 1fr) !important;
+    gap: 3rem 4rem !important;
+  }
+
+  .footer__blocks-wrapper > .footer-block {
+    max-width: none !important;
+    width: auto !important;
+    flex: none !important;
+  }
+
+  /* Row 2: skip col 1, start Contact Info at col 2 */
+  .footer__blocks-wrapper > .footer-block:nth-child(5) {
+    grid-column: 2;
   }
 }
 
@@ -283,7 +295,7 @@
 }
 
 .footer__copyright .copyright__content {
-  font-size: 1.05rem !important;
+  font-size: 1.4rem !important;
   color: var(--footer-brown-light) !important;
   font-style: italic;
 }
@@ -304,7 +316,7 @@
 }
 
 .footer .policies a {
-  font-size: 1.05rem !important;
+  font-size: 1.4rem !important;
   color: var(--footer-brown-light) !important;
   font-style: italic;
 }
