@@ -277,6 +277,7 @@
         },
         "tab_nXWdax": {
           "type": "tab",
+          "disabled": true,
           "settings": {
             "tab_label": "Product Journey",
             "desktop_image": "shopify://shop_images/1_70_5e91ce8340.webp"
@@ -341,6 +342,7 @@
     },
     "video_mRehJU": {
       "type": "video",
+      "disabled": true,
       "name": "How To USE",
       "settings": {
         "heading": "How To Use",
