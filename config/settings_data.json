@@ -10,7 +10,7 @@
 {
   "current": {
     "logo": "shopify://shop_images/Logo.png",
-    "logo_width": 50,
+    "logo_width": 70,
     "favicon": "shopify://shop_images/Logo.png",
     "type_header_font": "poppins_n5",
     "heading_scale": 130,
@@ -149,11 +149,6 @@
         "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": false,
         "settings": {}
-      },
-      "1626193551103621034": {
-        "type": "shopify://apps/cod-king/blocks/app-embed/99553eb5-bf07-4ce0-9263-7e5f10cab22c",
-        "disabled": false,
-        "settings": {}
       }
     },
     "color_schemes": {
@@ -218,6 +213,17 @@
           "background_gradient": "",
           "text": "#ffffff",
           "button": "#000000",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#2e2a39",
+          "shadow": "#2e2a39"
+        }
+      },
+      "scheme-cart-blue": {
+        "settings": {
+          "background": "#fdfbf7",
+          "background_gradient": "",
+          "text": "#2e2a39",
+          "button": "#0066cc",
           "button_label": "#ffffff",
           "secondary_button_label": "#2e2a39",
           "shadow": "#2e2a39"
