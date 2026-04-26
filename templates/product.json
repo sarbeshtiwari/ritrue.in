@@ -304,9 +304,9 @@
         "pair_1": {
           "type": "comparison",
           "settings": {
-            "before_image": "shopify://shop_images/SRM_Tan_Removal_01_15576eaca9_1c3ec3c3-a7b4-42ca-908b-2efcf5d10059.webp",
+            "before_image": "shopify://shop_images/7.png",
             "before_label": "BEFORE",
-            "after_image": "shopify://shop_images/SRM_Brightening_02_eff6150618.webp",
+            "after_image": "shopify://shop_images/8.png",
             "after_label": "AFTER",
             "caption": "Visible glow after just 1 use"
           }
