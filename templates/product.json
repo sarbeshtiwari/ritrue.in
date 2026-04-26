@@ -178,7 +178,7 @@
         "benefit_ygJ3UC": {
           "type": "benefit",
           "settings": {
-            "image": "shopify://shop_images/SRM_Tan_Removal_01_15576eaca9.webp",
+            "image": "shopify://shop_images/4.png",
             "title": "Tan Removal",
             "text": "Effectively removes stubborn tan and sun damage"
           }
@@ -186,7 +186,7 @@
         "benefit_y7wkYa": {
           "type": "benefit",
           "settings": {
-            "image": "shopify://shop_images/SRM_Brightening_02_eff6150618.webp",
+            "image": "shopify://shop_images/6.png",
             "title": "Brightening",
             "text": "Visibly brighter and more radiant skin"
           }
@@ -194,7 +194,7 @@
         "benefit_HBzKVN": {
           "type": "benefit",
           "settings": {
-            "image": "shopify://shop_images/SRM_Hydration_03_958ec78008.webp",
+            "image": "shopify://shop_images/5.png",
             "title": "Hydration",
             "text": "Deep hydration for soft, supple skin"
           }
