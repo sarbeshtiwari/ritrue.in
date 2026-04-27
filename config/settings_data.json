@@ -149,6 +149,29 @@
         "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": false,
         "settings": {}
+      },
+      "5816581709647520605": {
+        "type": "shopify://apps/reelfy-videos/blocks/app-pops/4022ffb0-05c3-4ef3-a409-6df51f4b1b3f",
+        "disabled": false,
+        "settings": {}
+      },
+      "15191099883265461803": {
+        "type": "shopify://apps/reelfy-videos/blocks/app-embed/4022ffb0-05c3-4ef3-a409-6df51f4b1b3f",
+        "disabled": false,
+        "settings": {
+          "exclude_pages": ""
+        }
+      },
+      "6089946381803635929": {
+        "type": "shopify://apps/kwik-cod-checkout/blocks/app-embed/74f36c20-677c-4aa2-b179-1769aa61abaa",
+        "disabled": false,
+        "settings": {
+          "gkc_button_text": "Checkout Now",
+          "gkc_button_subtext": "",
+          "gkc_button_bg": "#000000",
+          "gkc_text_color": "#ffffff",
+          "gk_image": true
+        }
       }
     },
     "color_schemes": {
