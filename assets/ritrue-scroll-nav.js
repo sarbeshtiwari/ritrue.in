@@ -33,12 +33,18 @@
     NAV_ITEMS.forEach(function(item) {
       var a = document.createElement('a');
       a.className = 'ritrue-scroll-nav__link';
-      a.href = '/#' + item.target;
+
+      if (item.target.startsWith('/')) {
+        a.href = item.target;
+      } else {
+        a.href = '/#' + item.target;
+      }
+
       a.textContent = item.label;
       a.setAttribute('data-target', item.target);
 
       a.addEventListener('click', function(e) {
-        if (isHomepage) {
+        if (!item.target.startsWith('/') && isHomepage) {
           e.preventDefault();
           scrollToId(item.target);
           history.replaceState(null, '', '/#' + item.target);
