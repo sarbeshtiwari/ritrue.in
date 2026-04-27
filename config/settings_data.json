@@ -172,6 +172,11 @@
           "gkc_text_color": "#ffffff",
           "gk_image": true
         }
+      },
+      "15830000824732515833": {
+        "type": "shopify://apps/sk-whatsapp-chat-button/blocks/app-embed/f26357f3-3b4f-4ccc-8c8a-a4df2fc1dfc5",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
