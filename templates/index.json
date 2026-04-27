@@ -273,7 +273,7 @@
         "rev_1": {
           "type": "review",
           "settings": {
-            "customer_image": "shopify://shop_images/SRM_Tan_Removal_01_15576eaca9_1c3ec3c3-a7b4-42ca-908b-2efcf5d10059.webp",
+            "customer_image": "shopify://shop_images/Testimonials_-_Ritrue_1.jpg",
             "stars": 5,
             "review_text": "My tan is literally gone! Skin looks brighter, smoother & so fresh.",
             "author_name": "Aishwarya R",
@@ -283,7 +283,7 @@
         "rev_2": {
           "type": "review",
           "settings": {
-            "customer_image": "shopify://shop_images/SRM_Brightening_02_eff6150618.webp",
+            "customer_image": "shopify://shop_images/Testimonials_-_Ritrue_3.jpg",
             "stars": 5,
             "review_text": "Used it before an event & the glow was unreal!",
             "author_name": "Neha S",
@@ -293,6 +293,7 @@
         "rev_3": {
           "type": "review",
           "settings": {
+            "customer_image": "shopify://shop_images/Testimonials_-_Ritrue_4.jpg",
             "stars": 5,
             "review_text": "Best mask I've ever used. Instant results in just 15 mins!",
             "author_name": "Komal P",
@@ -302,6 +303,7 @@
         "rev_4": {
           "type": "review",
           "settings": {
+            "customer_image": "shopify://shop_images/Testimonials_-_Ritrue_2.jpg",
             "stars": 5,
             "review_text": "Gentle yet super effective. My new holy grail!",
             "author_name": "Simran K",
