@@ -176,8 +176,8 @@
         "res_2": {
           "type": "result",
           "settings": {
-            "before_image": "shopify://shop_images/SRM_Tan_Removal_01_15576eaca9_1c3ec3c3-a7b4-42ca-908b-2efcf5d10059.webp",
-            "after_image": "shopify://shop_images/SRM_Brightening_02_eff6150618.webp"
+            "before_image": "shopify://shop_images/before.jpg",
+            "after_image": "shopify://shop_images/After_-_Ritrue_Glow.jpg"
           }
         },
         "res_3": {
