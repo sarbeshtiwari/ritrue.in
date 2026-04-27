@@ -355,8 +355,8 @@
         "tp_4": {
           "type": "trust_point",
           "settings": {
-            "icon": "printer",
-            "title": "Printed with Soy Ink",
+            "icon": "leaf",
+            "title": "Made with Skin friendly Ingredients",
             "description": "Eco-friendly choices for a better tomorrow"
           }
         }
@@ -412,8 +412,8 @@
         "product": "ritrue-moroccan-nila-powder-50g",
         "heading": "YOUR GLOW RITUAL STARTS HERE",
         "subtext": "Transform your skin in just 15 minutes. Glow like never before!",
-        "sale_price": "₹799",
-        "original_price": "₹999",
+        "sale_price": "499",
+        "original_price": "449",
         "discount_text": "20% OFF",
         "button_text": "SHOP NOW",
         "button_link": "",
