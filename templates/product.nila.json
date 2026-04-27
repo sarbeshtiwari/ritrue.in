@@ -144,7 +144,7 @@
         "video_1": {
           "type": "video_item",
           "settings": {
-            "video": "shopify://files/videos/80e7cb8e42c344efbeff9c313483bc50.SD-480p-1.5Mbps-65190622.mp4",
+            "video": "shopify://files/videos/Final Videos for Cart Page (1).mp4",
             "video_url": "",
             "caption": "How to Apply"
           }
@@ -152,7 +152,7 @@
         "video_2": {
           "type": "video_item",
           "settings": {
-            "video": "shopify://files/videos/80e7cb8e42c344efbeff9c313483bc50.SD-480p-1.5Mbps-65190622.mp4",
+            "video": "shopify://files/videos/Final Videos for Cart Page.mp4",
             "video_url": "",
             "caption": "Real Results"
           }
@@ -160,7 +160,7 @@
         "video_3": {
           "type": "video_item",
           "settings": {
-            "video": "shopify://files/videos/80e7cb8e42c344efbeff9c313483bc50.SD-480p-1.5Mbps-65190622.mp4",
+            "video": "shopify://files/videos/Final Videos for Cart Page (2).mp4",
             "video_url": "",
             "caption": "Customer Review"
           }
