@@ -280,6 +280,7 @@
       "blocks": {
         "tab_3fErDd": {
           "type": "tab",
+          "disabled": true,
           "settings": {
             "tab_label": "What Makes it Unique",
             "desktop_image": "shopify://shop_images/D1_0f5c8d657e.webp"
@@ -298,6 +299,7 @@
         "tab_3fErDd",
         "tab_nXWdax"
       ],
+      "disabled": true,
       "settings": {
         "heading": "All About This Product",
         "heading_size": "h1",
