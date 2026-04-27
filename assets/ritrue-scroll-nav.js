@@ -3,9 +3,9 @@
 
   var NAV_ITEMS = [
     { label: 'Home', target: 'home' },
+    { label: 'Shop', target: '/products/ritrue-moroccan-nila-powder-50g' },
     { label: 'Ingredients', target: 'ingredients' },
-    { label: 'Results', target: 'results' },
-    { label: 'Reviews', target: 'reviews' },
+    { label: 'Results & Reviews', target: 'results' },
     { label: 'How to Use', target: 'how-to-use' },
     { label: 'FAQs', target: 'faqs' }
   ];
