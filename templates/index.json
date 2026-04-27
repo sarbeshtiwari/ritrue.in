@@ -231,7 +231,7 @@
         "step_1": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/Artboard1_jpg.jpg",
+            "image": "shopify://shop_images/Ritrue_Apply.jpg",
             "title": "APPLY",
             "description": "Apply an even layer of the mask on clean, dry face."
           }
@@ -239,7 +239,7 @@
         "step_2": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/Artboard1-1_jpg.jpg",
+            "image": "shopify://shop_images/Ritrue_Wait.jpg",
             "title": "WAIT",
             "description": "Relax & let it work for 15 minutes."
           }
@@ -247,7 +247,7 @@
         "step_3": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/Blue_Nila_Kaftan_ad_3_story_360x_de1a7d4d-e6b9-4447-bb6c-68da2428efab.webp",
+            "image": "shopify://shop_images/Ritrue_Wash.jpg",
             "title": "WASH",
             "description": "Rinse off with water & reveal a radiant glow."
           }
@@ -261,7 +261,7 @@
       "settings": {
         "heading": "HOW TO USE",
         "subheading": "Your 15-minute glow ritual in 3 simple steps",
-        "background_image": "shopify://shop_images/model-laughs-barefoot.jpg",
+        "background_image": "shopify://shop_images/Untitled_design_6.jpg",
         "custom_bg_color": "",
         "custom_min_height": 0,
         "custom_font_size": 0
