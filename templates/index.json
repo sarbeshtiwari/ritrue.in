@@ -355,8 +355,8 @@
         "tp_4": {
           "type": "trust_point",
           "settings": {
-            "icon": "leaf",
-            "title": "Made with Skin friendly Ingredients",
+            "icon": "printer",
+            "title": "Skin friendly Ingredients",
             "description": "Eco-friendly choices for a better tomorrow"
           }
         }
