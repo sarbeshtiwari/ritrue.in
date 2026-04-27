@@ -190,14 +190,14 @@
         "stat_1": {
           "type": "stat",
           "settings": {
-            "number": "92%",
+            "number": "98%",
             "text": "Users saw visible glow after just 1 use"
           }
         },
         "stat_2": {
           "type": "stat",
           "settings": {
-            "number": "89%",
+            "number": "97%",
             "text": "Users noticed even skin tone"
           }
         },
